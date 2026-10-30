@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>แนะนำตัว | Elon Musk</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prompt:wght@500;700&family=Sarabun:wght@400;600&display=swap">
+<style>
+:root{--bg:#eef2f7;--surface:#ffffff;--ink:#1b2a41;--muted:#55627a;--accent:#2f5bea;--hl:#ffc857;--line:#d5dce8;color-scheme:light;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1624;--surface:#182236;--ink:#eaf0fb;--muted:#9fb0cc;--accent:#7e9bff;--hl:#ffc857;--line:#2a3857;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1624;--surface:#182236;--ink:#eaf0fb;--muted:#9fb0cc;--accent:#7e9bff;--hl:#ffc857;--line:#2a3857;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.75 "Sarabun",system-ui,sans-serif}
+main{max-width:680px;margin:0 auto;padding:40px 22px 64px}
+h1,h2{font-family:"Prompt","Sarabun",sans-serif;line-height:1.25;margin:0}
+h1{font-size:clamp(2.2rem,9vw,3.4rem);font-weight:700}
+h2{font-size:1.3rem;margin-bottom:14px}
+.avatar{width:84px;height:84px;border-radius:50%;background:var(--hl);color:#1b2a41;display:grid;place-items:center;font:700 2rem "Prompt",sans-serif;margin-bottom:22px}
+.role{color:var(--accent);font:500 1.15rem "Prompt",sans-serif;margin:6px 0 18px}
+.lead{color:var(--muted);max-width:52ch}
+section{margin-top:44px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;padding:0;list-style:none;margin:0}
+.chips li{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 16px;font-size:.95rem}
+.tl{border-left:3px solid var(--accent);padding-left:18px;margin:0;list-style:none}
+.tl li{margin-bottom:20px}
+.tl b{display:block;font-family:"Prompt",sans-serif;font-weight:500}
+.tl span{color:var(--muted);font-size:.92rem}
+.links{display:flex;flex-wrap:wrap;gap:12px}
+.links a{background:var(--accent);color:#fff;text-decoration:none;padding:10px 20px;border-radius:10px;font-weight:600}
+:root[data-theme="dark"] .links a{color:#0f1624}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .links a{color:#0f1624}}
+a:focus-visible,button:focus-visible{outline:3px solid var(--hl);outline-offset:3px}
+#edit{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font:600 .9rem "Sarabun",sans-serif;cursor:pointer}
+[contenteditable="true"]{outline:2px dashed var(--accent);outline-offset:3px;border-radius:4px}
+footer{margin-top:56px;color:var(--muted);font-size:.9rem}
+#bar{position:fixed;top:0;left:0;height:4px;width:0;background:var(--hl);z-index:20}
+header>*{animation:in .7s both}
+header>:nth-child(2){animation-delay:.12s}header>:nth-child(3){animation-delay:.24s}header>:nth-child(4){animation-delay:.36s}
+@keyframes in{from{opacity:0;transform:translateY(16px)}}
+.avatar{transition:transform .4s}.avatar:hover{transform:rotate(360deg) scale(1.08)}
+.chips li{transition:transform .2s,background .2s,color .2s;cursor:default}
+.chips li:hover{transform:translateY(-3px) rotate(-2deg);background:var(--hl);color:#1b2a41}
+.links a{transition:transform .2s}.links a:hover{transform:translateY(-3px)}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}.rv.show{opacity:1;transform:none}
+.typing::after{content:"|";margin-left:2px;animation:blink .8s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+#theme{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:999px;width:42px;height:38px;font-size:1.1rem;cursor:pointer}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+.stats{display:flex;gap:10px;margin-top:36px}
+.stat{flex:1;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 12px}
+.stat strong{display:block;font:700 1.6rem "Prompt",sans-serif;color:var(--accent);line-height:1.3}
+.stat span{font-size:.85rem;color:var(--muted);line-height:1.4;display:block}
+.idea{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--hl);border-radius:12px;padding:18px 20px;margin-top:36px}
+.idea small{color:var(--muted);display:block;margin-bottom:6px}
+.idea p{margin:0 0 12px;min-height:3.5em;transition:opacity .25s}
+.idea p.out{opacity:0}
+.idea button{background:none;border:1px solid var(--accent);color:var(--accent);border-radius:999px;padding:6px 16px;font:600 .9rem "Sarabun",sans-serif;cursor:pointer}
+.tl li{cursor:pointer}
+.tl li b::after{content:" +";color:var(--accent)}
+.tl li.open b::after{content:" −"}
+.tl .more{max-height:0;overflow:hidden;transition:max-height .4s;color:var(--muted);font-size:.95rem;margin:0}
+.tl li.open .more{max-height:200px;margin-top:6px}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{perspective:700px;background:none;border:0;padding:0;height:136px;cursor:pointer;font:inherit;color:inherit;text-align:left}
+.card .in{position:relative;display:block;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d}
+.card.flip .in{transform:rotateY(180deg)}
+.card .f,.card .bk{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px;padding:14px;border:1px solid var(--line);display:flex;flex-direction:column;justify-content:center}
+.card .f{background:var(--surface)}
+.card .f::after{content:"↻";position:absolute;right:12px;top:8px;color:var(--accent)}
+.card .bk{background:var(--accent);color:#fff;transform:rotateY(180deg);font-size:.9rem;line-height:1.5}
+:root[data-theme="dark"] .card .bk{color:#0f1624}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .card .bk{color:#0f1624}}
+.card .t{font:700 1.1rem "Prompt",sans-serif}
+.card .s{font-size:.85rem;color:var(--muted);margin-top:4px}
+.links button.copy{background:none;border:1px solid var(--accent);color:var(--accent);padding:10px 20px;border-radius:10px;font:600 1rem "Sarabun",sans-serif;cursor:pointer}
+#toast{position:fixed;left:50%;bottom:calc(66px + env(safe-area-inset-bottom,0px));transform:translate(-50%,10px);background:var(--ink);color:var(--bg);padding:8px 18px;border-radius:999px;font-size:.9rem;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+#lang{position:fixed;left:64px;bottom:calc(14px + env(safe-area-inset-bottom,0px));background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:999px;width:48px;height:38px;font:600 .9rem "Sarabun",sans-serif;cursor:pointer}
+header{position:relative}
+.art{position:absolute;right:0;top:0;width:120px;height:auto}
+header>:nth-child(5){animation-delay:.5s}
+.ic{width:26px;height:26px;margin-bottom:6px}
+.quiz{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px}
+.quiz p{margin:0}
+.qhead{display:flex;justify-content:space-between;font-size:.9rem;color:var(--muted);margin-bottom:10px}
+.tbar{height:6px;background:var(--line);border-radius:99px;overflow:hidden;margin-bottom:14px}
+.tbar i{display:block;height:100%;width:100%;background:var(--accent)}
+.qtext{font:500 1.15rem/1.5 "Prompt","Sarabun",sans-serif;margin-bottom:14px!important}
+.opts{display:grid;gap:10px}
+.opt{text-align:left;background:var(--bg);border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:12px 14px;font:600 1rem "Sarabun",sans-serif;cursor:pointer;transition:transform .15s}
+.opt:hover:not(:disabled){transform:translateX(4px)}
+.opt:disabled{opacity:.6;cursor:default}
+.opt.ok{background:#1f7a45;border-color:#1f7a45;color:#fff;opacity:1}
+.opt.no{background:#c23636;border-color:#c23636;color:#fff;opacity:1;animation:shake .35s}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.fb{margin-top:12px!important;font-weight:600}
+.qbtn{margin-top:14px;background:var(--accent);color:var(--bg);border:0;border-radius:10px;padding:10px 22px;font:600 1rem "Sarabun",sans-serif;cursor:pointer}
+.big{font:700 2.6rem "Prompt",sans-serif;color:var(--accent);line-height:1.3}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<canvas id="bg" aria-hidden="true"></canvas>
+<main>
+  <header>
+    <div class="avatar" id="ini">E</div>
+    <h1 class="e">สวัสดี ฉันชื่อ Elon Musk</h1>
+    <p class="role e">ผู้ก่อตั้ง SpaceX และ CEO ของ Tesla</p>
+    <p class="lead e">ฉันสร้างบริษัทที่พยายามทำให้มนุษย์ไปดาวอังคารได้ ทำให้รถยนต์ไฟฟ้าเป็นเรื่องปกติ และผลักดันเทคโนโลยี AI ไปข้างหน้า</p>
+  <svg class="art" viewBox="0 0 120 100" aria-hidden="true">
+      <circle cx="80" cy="58" r="28" fill="var(--accent)"/>
+      <ellipse cx="80" cy="58" rx="44" ry="9" fill="none" stroke="var(--hl)" stroke-width="4" transform="rotate(-18 80 58)"/>
+      <circle cx="14" cy="14" r="2" fill="var(--ink)" opacity=".5"/><circle cx="58" cy="8" r="1.5" fill="var(--ink)" opacity=".4"/><circle cx="108" cy="14" r="2" fill="var(--ink)" opacity=".5"/>
+      <g transform="translate(34 50) rotate(40)">
+        <path d="M-6 8L-15 21L-6 16ZM6 8L15 21L6 16Z" fill="var(--hl)" stroke="var(--ink)" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M0-27C11-14 11 6 7 17H-7C-11 6-11-14 0-27Z" fill="var(--surface)" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
+        <circle cx="0" cy="-6" r="4" fill="var(--accent)"/>
+        <path d="M-3 19L0 31L3 19Z" fill="var(--hl)"/>
+      </g>
+    </svg>
+  </header>
+  <div class="stats">
+    <div class="stat"><strong data-to="1971" data-fmt="0">1971</strong><span>ปีที่เกิด</span></div>
+    <div class="stat"><strong data-to="2002" data-fmt="0">2002</strong><span>ปีก่อตั้ง SpaceX</span></div>
+    <div class="stat"><strong data-to="18" data-suf=" ปี">18 ปี</strong><span>เป็น CEO Tesla</span></div>
+  </div>
+  <div class="idea">
+    <small>แนวคิดที่เขามักพูดถึง (สรุปความ)</small>
+    <p id="idea">ทำให้มนุษย์อยู่อาศัยบนหลายดาวเคราะห์ได้</p>
+    <button id="nextIdea" type="button">สุ่มแนวคิดอื่น</button>
+  </div>
+
+  <section>
+    <h2>เกี่ยวกับฉัน</h2>
+    <p class="e">เกิดที่เมืองพริทอเรีย ประเทศแอฟริกาใต้ ในปี 1971 ย้ายไปอเมริกาเพื่อเรียนและเริ่มทำธุรกิจ จนกลายเป็นหนึ่งในผู้ประกอบการที่คนพูดถึงมากที่สุดในโลก</p>
+  </section>
+
+  <section>
+    <h2>ทักษะ</h2>
+    <ul class="chips e"><li>วิศวกรรมจรวด</li><li>รถยนต์ไฟฟ้า</li><li>ปัญญาประดิษฐ์</li><li>การผลิตขนาดใหญ่</li><li>มองเป้าหมายระยะยาว</li></ul>
+  </section>
+
+  <section>
+    <h2>ประสบการณ์</h2>
+    <ul class="tl e">
+      <li><b>xAI รวมเข้ากับ SpaceX</b><span>2026 · SpaceX เข้าซื้อ xAI ซึ่งตั้งขึ้นในปี 2023</span></li>
+      <li><b>ซื้อ Twitter แล้วเปลี่ยนเป็น X</b><span>2022</span></li>
+      <li><b>ก่อตั้ง Neuralink และ The Boring Company</b><span>2016</span></li>
+      <li><b>CEO · Tesla</b><span>2008 – ปัจจุบัน</span></li>
+      <li><b>ก่อตั้ง SpaceX</b><span>2002 – ปัจจุบัน</span></li>
+      <li><b>Zip2 และ PayPal</b><span>1995 – 2002</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>ผลงานเด่น</h2>
+    <div class="cards">
+      <button class="card" type="button" aria-pressed="false"><span class="in"><span class="f"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2c3 3 3 9 2 13h-4c-1-4-1-10 2-13z"/><path d="M10 15l-3 4M14 15l3 4M12 17v5"/></svg><span class="t">Falcon 9</span><span class="s">จรวดที่ใช้ซ้ำได้</span></span><span class="bk">ลงจอดชั้นแรกสำเร็จครั้งแรกในปี 2015 ช่วยลดต้นทุนการขึ้นสู่อวกาศ</span></span></button>
+      <button class="card" type="button" aria-pressed="false"><span class="in"><span class="f"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="6" height="6"/><path d="M3 10h5v4H3zM16 10h5v4h-5zM12 9V5M12 15v4"/></svg><span class="t">Starlink</span><span class="s">อินเทอร์เน็ตผ่านดาวเทียม</span></span><span class="bk">กลุ่มดาวเทียมวงโคจรต่ำของ SpaceX ให้บริการอินเทอร์เน็ตทั่วโลก</span></span></button>
+      <button class="card" type="button" aria-pressed="false"><span class="in"><span class="f"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 15l2-6h14l2 6v3H3z"/><circle cx="7.5" cy="18" r="1.5"/><circle cx="16.5" cy="18" r="1.5"/></svg><span class="t">Tesla</span><span class="s">รถยนต์ไฟฟ้า</span></span><span class="bk">ตั้งแต่ Model S ปี 2012 ถึง Model 3 ที่ทำให้รถไฟฟ้าขายได้ในวงกว้าง</span></span></button>
+      <button class="card" type="button" aria-pressed="false"><span class="in"><span class="f"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 1c2 3 2.5 10 2 15h-4c-.5-5 0-12 2-15z"/><path d="M10 12l-3 6 3-1M14 12l3 6-3-1"/></svg><span class="t">Starship</span><span class="s">จรวดรุ่นใหม่</span></span><span class="bk">ระบบจรวดขนาดใหญ่ที่ออกแบบให้ใช้ซ้ำได้ทั้งลำ เพื่อไปดวงจันทร์และดาวอังคาร</span></span></button>
+    </div>
+  </section>
+
+  <section>
+    <h2>เกมทดสอบภาษาอังกฤษ</h2>
+    <div class="quiz" id="quiz" aria-live="polite"></div>
+  </section>
+
+  <section>
+    <h2>ติดต่อฉัน</h2>
+    <div class="links">
+      <a href="https://x.com/elonmusk" target="_blank" rel="noopener">X</a>
+      <a href="https://www.spacex.com" target="_blank" rel="noopener">SpaceX</a>
+      <a href="https://en.wikipedia.org/wiki/Elon_Musk" target="_blank" rel="noopener">Wikipedia</a>
+      <button class="copy" type="button" data-copy="@elonmusk">คัดลอก @elonmusk</button>
+      <button class="copy" type="button" data-copy="">คัดลอกลิงก์หน้านี้</button>
+    </div>
+  </section>
+
+  <footer>หน้าตัวอย่างสำหรับทดลองเท่านั้น ข้อมูลสรุปจากแหล่งข่าวสาธารณะ</footer>
+</main>
+<button id="theme" type="button" aria-label="สลับโหมดสว่าง/มืด">🌓</button>
+<button id="lang" type="button" aria-label="Switch language">EN</button>
+<div id="toast" role="status"></div>
+<button id="edit" type="button">แก้ไขข้อความ</button>
+<script>
+(function(){
+  var on=false,btn=document.getElementById('edit'),els=document.querySelectorAll('.e,.links');
+  btn.addEventListener('click',function(){
+    on=!on;
+    document.querySelectorAll('.e').forEach(function(n){n.setAttribute('contenteditable',on?'true':'false')});
+    btn.textContent=window.__en?(on?'Done':'Edit text'):(on?'เสร็จแล้ว':'แก้ไขข้อความ');
+    var t=document.querySelector('h1').textContent.replace('สวัสดี ฉันชื่อ','').replace('Hi, I’m','').trim();
+    if(!on&&t){document.getElementById('ini').textContent=t.charAt(0)}
+  });
+})();
+</script>
+<script>
+(function(){
+  var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var bar=document.getElementById('bar');
+  addEventListener('scroll',function(){
+    var h=document.documentElement.scrollHeight-innerHeight;
+    bar.style.width=(h>0?scrollY/h*100:0)+'%';
+  },{passive:true});
+  document.getElementById('theme').addEventListener('click',function(){
+    var r=document.documentElement,dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;
+    r.dataset.theme=dark?'light':'dark';
+  });
+  var items=document.querySelectorAll('.tl li,.chips li');
+  if(!rm&&'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}})},{threshold:.2});
+    items.forEach(function(n,i){n.classList.add('rv');n.style.transitionDelay=(i%5)*80+'ms';io.observe(n)});
+  }
+  var role=document.querySelector('.role');
+  if(!rm&&role){
+    var full=role.textContent,i=0;role.textContent='';role.classList.add('typing');
+    setTimeout(function(){var t=setInterval(function(){
+      role.textContent=full.slice(0,++i);
+      if(i>=full.length){clearInterval(t);role.classList.remove('typing')}
+    },55)},700);
+  }
+})();
+</script>
+<script>
+(function(){
+  var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  /* 1 counters */
+  var nums=document.querySelectorAll('[data-to]');
+  function run(el){
+    var to=+el.dataset.to,suf=el.dataset.suf||'',t0=null;
+    if(rm){el.textContent=to+suf;return}
+    function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/1200,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)))+suf;if(p<1)requestAnimationFrame(f)}
+    requestAnimationFrame(f);
+  }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){run(e.target);io.unobserve(e.target)}})},{threshold:.6});
+    nums.forEach(function(n){io.observe(n)});
+  }
+  /* 2 stars */
+  var c=document.getElementById('bg'),x=c.getContext('2d'),W=0,H=0,S=[],mx=0,col='#888',n=0;
+  function size(){var d=devicePixelRatio||1;W=c.width=innerWidth*d;H=c.height=innerHeight*d}
+  size();addEventListener('resize',size);
+  for(var i=0;i<70;i++)S.push({x:Math.random(),y:Math.random(),r:.6+Math.random()*1.4,s:.00004+Math.random()*.00012,z:Math.random(),p:Math.random()*6});
+  addEventListener('pointermove',function(e){mx=e.clientX/innerWidth-.5},{passive:true});
+  function draw(t){
+    if(n++%60===0)col=getComputedStyle(document.documentElement).getPropertyValue('--ink').trim()||'#888';
+    x.clearRect(0,0,W,H);x.fillStyle=col;
+    S.forEach(function(s){
+      if(!rm){s.y+=s.s;if(s.y>1)s.y=0}
+      var a=.12+.28*(.5+.5*Math.sin(t/900+s.p));
+      x.globalAlpha=a;x.beginPath();
+      x.arc(((s.x+mx*s.z*.03+1)%1)*W,s.y*H,s.r*(devicePixelRatio||1),0,6.283);x.fill();
+    });
+    if(!rm&&!document.hidden)requestAnimationFrame(draw);
+    else if(!rm)setTimeout(function(){requestAnimationFrame(draw)},500);
+  }
+  requestAnimationFrame(draw);
+  /* 3 expandable timeline */
+  var more=['เดือนกุมภาพันธ์ 2026 SpaceX ซื้อ xAI ทำให้ Grok และธุรกิจ AI อยู่ใต้ร่มเดียวกับบริษัทจรวด',
+    'เข้าซื้อ Twitter ในเดือนตุลาคม 2022 แล้วเปลี่ยนชื่อเป็น X ต่อมาถูกรวมเข้ากับ xAI',
+    'Neuralink พัฒนาอินเทอร์เฟซสมองกับคอมพิวเตอร์ ส่วน The Boring Company ขุดอุโมงค์เพื่อแก้ปัญหารถติด',
+    'เข้าร่วมในปี 2004 ในฐานะประธานและนักลงทุนหลัก ก่อนขึ้นเป็น CEO ในปี 2008',
+    'ก่อตั้งในปี 2002 เป้าหมายคือลดต้นทุนการขนส่งขึ้นสู่อวกาศด้วยจรวดที่ใช้ซ้ำได้',
+    'Zip2 เป็นบริษัทแรกของเขา ต่อมาเขามีส่วนในธุรกิจที่กลายเป็น PayPal'];
+  document.querySelectorAll('.tl li').forEach(function(li,i){
+    if(!more[i])return;
+    var p=document.createElement('p');p.className='more';p.textContent=more[i];li.appendChild(p);
+    li.tabIndex=0;li.setAttribute('role','button');li.setAttribute('aria-expanded','false');
+    function tog(){var o=li.classList.toggle('open');li.setAttribute('aria-expanded',o)}
+    li.addEventListener('click',tog);
+    li.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tog()}});
+  });
+  /* 4 random ideas */
+  var ideas=['ทำให้มนุษย์อยู่อาศัยบนหลายดาวเคราะห์ได้','คิดจากหลักการพื้นฐาน แทนการลอกแบบที่คนอื่นทำ','ทดลอง ล้ม แล้วปรับปรุงให้เร็ว','ลดต้นทุนการผลิตให้คนทั่วไปเข้าถึงเทคโนโลยีได้','มองเป้าหมายระยะยาว แม้ในวันนี้จะดูเป็นไปไม่ได้'],cur=0,ip=document.getElementById('idea');
+  document.getElementById('nextIdea').addEventListener('click',function(){
+    var k;do{k=Math.floor(Math.random()*ideas.length)}while(k===cur);cur=k;
+    ip.classList.add('out');
+    setTimeout(function(){ip.textContent=ideas[k];ip.classList.remove('out')},rm?0:250);
+  });
+})();
+</script>
+<script>
+(function(){
+  /* 5 flip cards */
+  document.querySelectorAll('.card').forEach(function(c){
+    c.addEventListener('click',function(){var f=c.classList.toggle('flip');c.setAttribute('aria-pressed',f)});
+  });
+  /* 6 copy */
+  var toast=document.getElementById('toast'),tt;
+  function say(m){toast.textContent=m;toast.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('on')},1600)}
+  function fb(s){var a=document.createElement('textarea');a.value=s;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(e){}a.remove()}
+  document.querySelectorAll('.copy').forEach(function(b){
+    b.addEventListener('click',function(){
+      var s=b.dataset.copy||location.href;
+      function ok(){say(window.__en?'Copied':'คัดลอกแล้ว')}
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(s).then(ok,function(){fb(s);ok()})}else{fb(s);ok()}
+    });
+  });
+  /* 7 language switch */
+  var T=[
+    ['h1',['Hi, I’m Elon Musk']],
+    ['.role',['Founder of SpaceX and CEO of Tesla']],
+    ['.lead',['I build companies that try to get humans to other planets, make electric cars an everyday thing, and push AI technology forward.']],
+    ['.stat span',['Year born','SpaceX founded','Years as Tesla CEO']],
+    ['.idea small',['Ideas he often talks about (paraphrased)']],
+    ['section h2',['About me','Skills','Experience','Highlights','English quiz','Contact me']],
+    ['section > p.e',['Born in 1971 in Pretoria, South Africa. He moved to the United States to study and start businesses, and became one of the entrepreneurs people talk about most in the world.']],
+    ['.chips li',['Rocket engineering','Electric vehicles','Artificial intelligence','Large-scale manufacturing','Long-term thinking']],
+    ['.tl li b',['xAI merges into SpaceX','Bought Twitter and renamed it X','Founded Neuralink and The Boring Company','CEO · Tesla','Founded SpaceX','Zip2 and PayPal']],
+    ['.tl li span',['2026 · SpaceX acquires xAI, founded in 2023','2022','2016','2008 – present','2002 – present','1995 – 2002']],
+    ['.tl .more',['In February 2026, SpaceX bought xAI, putting Grok and the AI business under the same roof as the rocket company.','He bought Twitter in October 2022 and renamed it X. It was later merged into xAI.','Neuralink develops brain–computer interfaces, while The Boring Company digs tunnels to ease traffic.','He joined in 2004 as chairman and lead investor, then became CEO in 2008.','Founded in 2002 to cut the cost of reaching space with reusable rockets.','Zip2 was his first company. He later had a stake in the business that became PayPal.']],
+    ['.card .s',['Reusable rocket','Satellite internet','Electric vehicles','Next-gen rocket']],
+    ['.card .bk',['First stage landed successfully for the first time in 2015, helping cut the cost of reaching space.','A low-orbit satellite constellation from SpaceX that provides internet service worldwide.','From the Model S in 2012 to the Model 3, which brought electric cars to a mass market.','A giant rocket system designed to be fully reusable, aimed at the Moon and Mars.']],
+    ['.copy',['Copy @elonmusk','Copy page link']],
+    ['footer',['Sample page for testing only. Information summarized from public news sources.']]
+  ];
+  T.forEach(function(p){document.querySelectorAll(p[0]).forEach(function(el){el.dataset.th=el.textContent})});
+  var role=document.querySelector('.role');role.dataset.th='ผู้ก่อตั้ง SpaceX และ CEO ของ Tesla';
+  var IT=['ทำให้มนุษย์อยู่อาศัยบนหลายดาวเคราะห์ได้','คิดจากหลักการพื้นฐาน แทนการลอกแบบที่คนอื่นทำ','ทดลอง ล้ม แล้วปรับปรุงให้เร็ว','ลดต้นทุนการผลิตให้คนทั่วไปเข้าถึงเทคโนโลยีได้','มองเป้าหมายระยะยาว แม้ในวันนี้จะดูเป็นไปไม่ได้'];
+  var IE=['Make humanity able to live on many planets','Think from first principles instead of copying what others do','Test, fail, then improve fast','Cut production costs so ordinary people can access technology','Think long term, even if it looks impossible today'];
+  var cur=0,ip=document.getElementById('idea'),ob=document.getElementById('nextIdea'),nb=ob.cloneNode(true);
+  ob.parentNode.replaceChild(nb,ob);
+  nb.addEventListener('click',function(){
+    var k;do{k=Math.floor(Math.random()*IT.length)}while(k===cur);cur=k;
+    ip.classList.add('out');
+    setTimeout(function(){ip.textContent=(window.__en?IE:IT)[cur];ip.classList.remove('out')},matchMedia('(prefers-reduced-motion:reduce)').matches?0:250);
+  });
+  var lb=document.getElementById('lang');
+  function setLang(en){
+    window.__en=en;document.documentElement.lang=en?'en':'th';
+    T.forEach(function(p){document.querySelectorAll(p[0]).forEach(function(el,i){
+      el.textContent=en&&p[1][i]!==undefined?p[1][i]:el.dataset.th;
+    })});
+    var st=document.querySelectorAll('.stat strong')[2];st.dataset.suf=en?' years':' ปี';st.textContent='18'+st.dataset.suf;
+    ip.textContent=(en?IE:IT)[cur];nb.textContent=en?'Show another idea':'สุ่มแนวคิดอื่น';
+    var eb=document.getElementById('edit'),d=/เสร็จ|Done/.test(eb.textContent);
+    eb.textContent=en?(d?'Done':'Edit text'):(d?'เสร็จแล้ว':'แก้ไขข้อความ');
+    document.title=en?'Introduction | Elon Musk':'แนะนำตัว | Elon Musk';
+    lb.textContent=en?'TH':'EN';
+  }
+  lb.addEventListener('click',function(){setLang(!window.__en)});
+})();
+</script>
+<script>
+(function(){
+  var rm=matchMedia('(prefers-reduced-motion:reduce)').matches,TL=rm?0:15;
+  var B=[
+    ['She ___ to school every day.',['goes','go','going','gone'],0],
+    ['I have lived here ___ 2020.',['since','for','from','during'],0],
+    ['The opposite of “ancient” is ___.',['modern','old','large','quiet'],0],
+    ['If it rains tomorrow, we ___ at home.',['will stay','stayed','would stayed','staying'],0],
+    ['He is good ___ playing chess.',['at','in','on','for'],0],
+    ['There aren’t ___ seats left.',['any','some','a','much'],0],
+    ['She asked me where ___.',['I lived','did I live','I live did','lived I'],0],
+    ['SpaceX builds rockets that can be ___ many times.',['used','using','use','uses'],0],
+    ['Tesla makes ___ cars.',['electric','electricity','electrify','electrically'],0],
+    ['I ___ breakfast when the phone rang.',['was having','have','am having','had had'],0]
+  ];
+  var root=document.getElementById('quiz'),st={p:'start'},tm;
+  function L(th,e){return window.__en?e:th}
+  function h(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!==undefined)e.textContent=x;return e}
+  function shuf(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+  function start(){
+    st={p:'q',i:0,s:0,k:0,best:0,qs:shuf(B).slice(0,5).map(function(b){var o=shuf(b[1]);return{q:b[0],o:o,a:o.indexOf(b[1][b[2]])}})};
+    render();
+  }
+  function answer(ix){
+    if(st.p!=='q')return;
+    clearTimeout(tm);st.p='fb';st.pick=ix;
+    if(ix===st.qs[st.i].a){st.s++;st.k++;if(st.k>st.best)st.best=st.k}else st.k=0;
+    render();
+  }
+  function btn(cls,txt,fn){var b=h('button',cls,txt);b.type='button';b.onclick=fn;return b}
+  function render(){
+    clearTimeout(tm);root.textContent='';
+    if(st.p==='start'){
+      root.appendChild(h('p','qtext',L('ทดสอบภาษาอังกฤษ 5 ข้อ ตอบให้ทันภายใน 15 วินาทีต่อข้อ','5 quick English questions. 15 seconds each.')));
+      root.appendChild(btn('qbtn',L('เริ่มเล่น','Start'),start));return;
+    }
+    if(st.p==='end'){
+      root.appendChild(h('p','big',st.s+'/5'));
+      root.appendChild(h('p','qtext',st.s>=5?L('เก่งมาก!','Excellent!'):st.s>=3?L('ดีมาก!','Nice work!'):L('ลองอีกครั้งนะ','Try again!')));
+      root.appendChild(h('p','fb','🔥 '+L('ตอบถูกต่อเนื่องสูงสุด ','Best streak: ')+st.best));
+      root.appendChild(btn('qbtn',L('เล่นอีกครั้ง','Play again'),start));return;
+    }
+    var q=st.qs[st.i],hd=h('div','qhead');
+    hd.appendChild(h('span','',L('ข้อ ','Question ')+(st.i+1)+'/5'));
+    hd.appendChild(h('span','','🔥 '+st.k+' · '+L('คะแนน ','Score ')+st.s));
+    root.appendChild(hd);
+    var bar=null;
+    if(st.p==='q'&&TL){var tb=h('div','tbar');bar=h('i');tb.appendChild(bar);root.appendChild(tb)}
+    root.appendChild(h('p','qtext',q.q));
+    var ol=h('div','opts');
+    q.o.forEach(function(t,ix){
+      var b=h('button','opt',t);b.type='button';
+      if(st.p==='fb'){b.disabled=true;if(ix===q.a)b.classList.add('ok');else if(ix===st.pick)b.classList.add('no')}
+      else b.onclick=function(){answer(ix)};
+      ol.appendChild(b);
+    });
+    root.appendChild(ol);
+    if(st.p==='fb'){
+      var ok=st.pick===q.a;
+      root.appendChild(h('p','fb',ok?L('ถูกต้อง!','Correct!'):(st.pick<0?L('หมดเวลา ','Time’s up. '):L('ยังไม่ใช่ ','Not quite. '))+L('คำตอบคือ ','Answer: ')+q.o[q.a]));
+      root.appendChild(btn('qbtn',st.i<4?L('ข้อถัดไป','Next'):L('ดูผล','See result'),function(){if(st.i<4){st.i++;st.p='q'}else st.p='end';render()}));
+    }
+    if(bar){void bar.offsetWidth;bar.style.transition='width '+TL+'s linear';bar.style.width='0';tm=setTimeout(function(){answer(-1)},TL*1000)}
+  }
+  document.getElementById('lang').addEventListener('click',render);
+  render();
+})();
+</script>
+</body>
+</html>
