@@ -179,12 +179,52 @@ main[data-tab="p"] .tg,#nav[data-tab="p"] .tg{display:none}
 #mfab.on{animation:mpulse 1.2s ease-in-out infinite}
 @keyframes mpulse{50%{transform:scale(1.1)}}
 @media (prefers-reduced-motion:reduce){#mfab.on{animation:none}}
+#ck{max-width:440px;margin:0 auto}
+.ckst{text-align:center;font-weight:600;margin:0 0 10px;min-height:1.6em}
+.ckb{display:grid;grid-template-columns:repeat(8,1fr);width:100%;aspect-ratio:1;border:3px solid var(--ink);border-radius:10px;overflow:hidden}
+.sq{position:relative;display:grid;place-items:center;padding:0;margin:0;border:0;min-width:0}
+.sq.lt{background:#eadfc8}
+.sq.dk{background:#2d3350;cursor:pointer}
+.pc{width:78%;height:78%;border-radius:50%;display:grid;place-items:center;font-size:clamp(.8rem,4.4vw,1.4rem);border:2px solid #111118;box-shadow:inset 0 -3px 0 rgba(0,0,0,.25);line-height:1}
+.pc.w{background:#19b4ff;color:#06263a}
+.pc.b{background:#e0283a;color:#fff}
+.sq.sel{box-shadow:inset 0 0 0 3px #ffd23f}
+.sq.lm{box-shadow:inset 0 0 0 2px rgba(255,255,255,.4)}
+.sq.dst::after{content:"";position:absolute;width:28%;height:28%;border-radius:50%;background:#ffd23f}
+.sq.can .pc{animation:ckp 1.4s ease-in-out infinite}
+@keyframes ckp{50%{transform:scale(1.08)}}
+.sq:focus-visible{outline:3px solid #ffd23f;outline-offset:-3px}
+.ckcnt{text-align:center;font-size:.9rem;color:var(--muted);margin:10px 0 0}
+.ckrow{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:12px 0}
+.ckrow button{border:2px solid var(--ink);background:var(--surface);color:var(--ink);border-radius:10px;padding:8px 14px;font:600 .95rem "Sarabun",sans-serif;cursor:pointer;box-shadow:2px 2px 0 var(--ink)}
+.ckrow button[aria-pressed="true"]{background:var(--accent);color:#fff}
+.ckrule{color:var(--muted);font-size:.85rem;text-align:center;margin:0}
+@media (prefers-reduced-motion:reduce){.sq.can .pc{animation:none}}
+.ckb{grid-template-columns:repeat(8,minmax(0,1fr));grid-template-rows:repeat(8,minmax(0,1fr))}
+.sq{min-height:0;height:100%}
+.pc{height:auto;aspect-ratio:1}
+.pc{transition:transform .2s}
+.pc.ckmv{position:relative;z-index:5;animation:ckslide .35s cubic-bezier(.2,.8,.3,1)}
+@keyframes ckslide{from{transform:translate(var(--dx),var(--dy))}to{transform:none}}
+.pc.ckmv.crown{animation:ckslide .35s cubic-bezier(.2,.8,.3,1),ckcrown .7s ease-out .35s}
+@keyframes ckcrown{0%{transform:scale(1) rotate(0)}50%{transform:scale(1.5) rotate(180deg)}100%{transform:scale(1) rotate(360deg)}}
+.pc.ghost{position:absolute;left:11%;top:11%;pointer-events:none;z-index:4;animation:ckghost .45s ease-in .25s forwards}
+@keyframes ckghost{to{transform:scale(.2) rotate(120deg);opacity:0}}
+.pc.pop{animation:ckpop .45s cubic-bezier(.2,1.4,.4,1) both}
+@keyframes ckpop{from{transform:scale(0)}to{transform:scale(1)}}
+.sq.sel .pc{transform:translateY(-3px) scale(1.12)}
+.sq.dst::after{animation:ckdot 1s ease-in-out infinite}
+@keyframes ckdot{50%{transform:scale(1.35)}}
+.ckst{animation:ckfade .3s}
+@keyframes ckfade{from{opacity:0;transform:translateY(-4px)}}
+.ckrow button:active{transform:translate(2px,2px);box-shadow:none}
+@media (prefers-reduced-motion:reduce){.pc,.sq.dst::after,.ckst{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
 <div id="bar"></div>
 <canvas id="bg" aria-hidden="true"></canvas>
-<nav id="nav" aria-label="เมนูหลัก"><div class="nv"><a class="tp" href="#about">เกี่ยวกับ</a><a class="tp" href="#skills">ทักษะ</a><a class="tp" href="#exp">ประสบการณ์</a><a class="tp" href="#work">ที่ทำงาน</a><a class="tp" href="#movies">หนัง</a><a class="tp" href="#music">เพลง</a><a class="tg" href="#game">เกม</a><a class="tg" href="#mygame">เกมที่ทำ</a><a href="#contact">ติดต่อ</a></div></nav>
+<nav id="nav" aria-label="เมนูหลัก"><div class="nv"><a class="tp" href="#about">เกี่ยวกับ</a><a class="tp" href="#skills">ทักษะ</a><a class="tp" href="#exp">ประสบการณ์</a><a class="tp" href="#work">ที่ทำงาน</a><a class="tp" href="#movies">หนัง</a><a class="tp" href="#music">เพลง</a><a class="tg" href="#game">เกม</a><a class="tg" href="#mygame">เกมที่ทำ</a><a class="tg" href="#checkers">หมากฮอส</a><a href="#contact">ติดต่อ</a></div></nav>
 <main>
   <header>
     <div class="banner" aria-hidden="true"><video id="bnv" autoplay muted loop playsinline preload="metadata" poster="banner.jpg" src="banner.mp4"></video></div>
@@ -262,6 +302,11 @@ main[data-tab="p"] .tg,#nav[data-tab="p"] .tg{display:none}
   <section id="game" class="tg">
     <h2>เกมทดสอบภาษาอังกฤษ</h2>
     <div class="quiz" id="quiz" aria-live="polite"></div>
+  </section>
+
+  <section id="checkers" class="tg">
+    <h2>หมากฮอส</h2>
+    <div class="ck" id="ck"></div>
   </section>
 
   <section id="contact">
@@ -396,7 +441,7 @@ main[data-tab="p"] .tg,#nav[data-tab="p"] .tg{display:none}
     ['.stat span',['Year finished ปวช. (B.E.)','Year finished ปวส. (B.E.)','Past workplaces']],
     ['.status span',['Online · 🎧 Listening to Favorite songs']],
     ['.idea small',['Favorite quotes']],
-    ['section h2',['About me','Skills','Experience','Past workplaces','Favorite movies','Favorite music','English quiz','My game','Contact me']],
+    ['section h2',['About me','Skills','Experience','Past workplaces','Favorite movies','Favorite music','My game','English quiz','Checkers','Contact me']],
     ['section > p.e',['I’m a sergeant cadet at the Army NCO School in Prachuap Khiri Khan. I like listening to music, play games in my free time, enjoy learning about IT, and love cats. I finished ปวช. in 2023 (B.E. 2566) and ปวส. in 2025 (B.E. 2568), both at Wang Nam Yen Technical College.']],
     ['.chips li',['Computers / IT','English']],
     ['.tl li b',['Sergeant cadet','Finished ปวส.','Finished ปวช.']],
@@ -406,7 +451,7 @@ main[data-tab="p"] .tg,#nav[data-tab="p"] .tg{display:none}
     ['.card .bk',['Used to work at CPRAM in Chonburi.','Used to work at Sony Technology Thailand in Chonburi.']],
     ['.links a.chat',['💬 Chat on IG']],
     ['.copy',['Copy IG','Copy page link']],
-    ['#nav a',['About','Skills','Experience','Workplaces','Movies','Music','Quiz','My game','Contact']],
+    ['#nav a',['About','Skills','Experience','Workplaces','Movies','Music','Quiz','My game','Checkers','Contact']],
     ['.tf button',['All','Education','Present']],
     ['.gm b',['Kingdom Defense Fortress']],
     ['.gm span span',['Tower defense game · tap to play ▶']],
@@ -530,7 +575,7 @@ main[data-tab="p"] .tg,#nav[data-tab="p"] .tg{display:none}
     var io=new IntersectionObserver(function(es){es.forEach(function(e){
       if(!e.isIntersecting||Date.now()<lock)return;
       links.forEach(function(a){a.classList.remove('on')});
-      var a=map[e.target.id];a.classList.add('on');var nv=a.parentNode;nv.scrollTo({left:a.offsetLeft-(nv.clientWidth-a.offsetWidth)/2,behavior:'smooth'});
+      var a=map[e.target.id];if(!a)return;a.classList.add('on');var nv=a.parentNode;nv.scrollTo({left:a.offsetLeft-(nv.clientWidth-a.offsetWidth)/2,behavior:'smooth'});
     })},{rootMargin:'-40% 0px -55% 0px'});
     document.querySelectorAll('section[id]').forEach(function(s){io.observe(s)});
   }
@@ -588,6 +633,220 @@ main[data-tab="p"] .tg,#nav[data-tab="p"] .tg{display:none}
   a.addEventListener('ended',function(){ui(false)});
   var lg=document.getElementById('lang');if(lg)lg.addEventListener('click',function(){ui(!a.paused)});
   ui(false);
+})();
+</script>
+<script>
+(function(){
+  var root=document.getElementById('ck');if(!root)return;
+  var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function L(th,e){return window.__en?e:th}
+  function h(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!==undefined)e.textContent=x;return e}
+  function inb(r,c){return r>=0&&r<8&&c>=0&&c<8}
+  var ALL=[[-1,-1],[-1,1],[1,-1],[1,1]];
+  var B,turn,sel,legal,over,quiet,last,busy,res,lvl=2,score={w:0,l:0,d:0},NODES=0,fresh=false,intro=false,burst=false;
+  function isK(p){return p!==p.toLowerCase()}
+  function sd(p){return p.toLowerCase()}
+  function fwd(s){return s==='w'?-1:1}
+  function jump(bd,r,c,k,s,cap,path,out){
+    var found=false,opp=s==='w'?'b':'w',dirs=k?ALL:[[fwd(s),-1],[fwd(s),1]];
+    dirs.forEach(function(d){
+      var dr=d[0],dc=d[1],q;
+      if(!k){
+        var r1=r+dr,c1=c+dc,r2=r+2*dr,c2=c+2*dc;
+        if(inb(r2,c2)&&(q=bd[r1*8+c1])&&sd(q)===opp&&cap.indexOf(r1*8+c1)<0&&!bd[r2*8+c2]){
+          found=true;jump(bd,r2,c2,k,s,cap.concat(r1*8+c1),path.concat(r2*8+c2),out);
+        }
+      }else{
+        var rr=r+dr,cc=c+dc;
+        while(inb(rr,cc)&&!bd[rr*8+cc]){rr+=dr;cc+=dc}
+        if(inb(rr,cc)){
+          q=bd[rr*8+cc];
+          if(sd(q)===opp&&cap.indexOf(rr*8+cc)<0){
+            var r2=rr+dr,c2=cc+dc;
+            while(inb(r2,c2)&&!bd[r2*8+c2]){
+              found=true;jump(bd,r2,c2,k,s,cap.concat(rr*8+cc),path.concat(r2*8+c2),out);
+              r2+=dr;c2+=dc;
+            }
+          }
+        }
+      }
+    });
+    if(!found&&cap.length)out.push({from:path[0],to:path[path.length-1],cap:cap});
+  }
+  function gen(bd,s){
+    var caps=[],mv=[],i;
+    for(i=0;i<64;i++){
+      var p=bd[i];if(!p||sd(p)!==s)continue;
+      var b2=bd.slice();b2[i]='';
+      jump(b2,i>>3,i&7,isK(p),s,[],[i],caps);
+    }
+    if(caps.length)return caps;
+    for(i=0;i<64;i++){
+      var p2=bd[i];if(!p2||sd(p2)!==s)continue;
+      var r=i>>3,c=i&7,k=isK(p2),dirs=k?ALL:[[fwd(s),-1],[fwd(s),1]];
+      dirs.forEach(function(d){
+        var rr=r+d[0],cc=c+d[1];
+        while(inb(rr,cc)&&!bd[rr*8+cc]){
+          mv.push({from:i,to:rr*8+cc,cap:[]});
+          if(!k)break;
+          rr+=d[0];cc+=d[1];
+        }
+      });
+    }
+    return mv;
+  }
+  function apply(bd,m){
+    var nb=bd.slice(),p=nb[m.from];nb[m.from]='';
+    m.cap.forEach(function(x){nb[x]=''});
+    var r=m.to>>3;
+    if(p==='w'&&r===0)p='W';
+    if(p==='b'&&r===7)p='B';
+    nb[m.to]=p;return nb;
+  }
+  function ev(bd){
+    var s=0;
+    for(var i=0;i<64;i++){
+      var p=bd[i];if(!p)continue;
+      var r=i>>3,c=i&7,k=isK(p),q=sd(p),v=k?300:100;
+      if(!k)v+=(q==='b'?r:7-r)*4;
+      v+=(3.5-Math.abs(c-3.5))*1.5;
+      s+=q==='b'?v:-v;
+    }
+    return s;
+  }
+  function mm(bd,s,d,a,b){
+    NODES++;
+    var ms=gen(bd,s);
+    if(!ms.length)return s==='b'?-90000-d:90000+d;
+    if(d===0||NODES>40000)return ev(bd);
+    var best,v,i;
+    if(s==='b'){
+      best=-Infinity;
+      for(i=0;i<ms.length;i++){v=mm(apply(bd,ms[i]),'w',d-1,a,b);if(v>best)best=v;if(best>a)a=best;if(a>=b)break}
+    }else{
+      best=Infinity;
+      for(i=0;i<ms.length;i++){v=mm(apply(bd,ms[i]),'b',d-1,a,b);if(v<best)best=v;if(best<b)b=best;if(a>=b)break}
+    }
+    return best;
+  }
+  function chooseAI(){
+    var ms=gen(B,'b');if(ms.length===1)return ms[0];
+    var depth=lvl===1?1:lvl===2?3:5,noise=lvl===1?150:lvl===2?15:0,bestM=ms[0],bestV=-Infinity;
+    ms.forEach(function(m){
+      NODES=0;
+      var v=mm(apply(B,m),'w',depth-1,-Infinity,Infinity)+(Math.random()-.5)*noise;
+      if(v>bestV){bestV=v;bestM=m}
+    });
+    return bestM;
+  }
+  function ckConfetti(){
+    if(rm)return;
+    var c=document.createElement('canvas');c.setAttribute('aria-hidden','true');
+    c.style.cssText='position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50';
+    var d=devicePixelRatio||1,W=c.width=innerWidth*d,H=c.height=innerHeight*d,x=c.getContext('2d'),cols=['#d6182a','#19b4ff','#ffd23f','#2ec27e','#ffffff'],P=[],t0=null;
+    document.body.appendChild(c);
+    for(var i=0;i<140;i++)P.push({x:W/2+(Math.random()-.5)*W*.3,y:H*.55,vx:(Math.random()-.5)*14*d,vy:(-9-Math.random()*12)*d,r:(4+Math.random()*5)*d,a:Math.random()*6,va:(Math.random()-.5)*.4,c:cols[i%5]});
+    function f(t){
+      if(!t0)t0=t;var e=t-t0;x.clearRect(0,0,W,H);
+      P.forEach(function(q){q.vy+=.35*d;q.x+=q.vx;q.y+=q.vy;q.a+=q.va;x.save();x.translate(q.x,q.y);x.rotate(q.a);x.fillStyle=q.c;x.globalAlpha=Math.max(0,1-e/2800);x.fillRect(-q.r/2,-q.r/4,q.r,q.r/2);x.restore()});
+      if(e<2800)requestAnimationFrame(f);else c.remove();
+    }
+    requestAnimationFrame(f);
+  }
+  function init(){
+    B=[];for(var i=0;i<64;i++)B.push('');
+    for(var r=0;r<8;r++)for(var c=0;c<8;c++){
+      if((r+c)%2!==1)continue;
+      if(r<2)B[r*8+c]='b';
+      if(r>5)B[r*8+c]='w';
+    }
+    turn='w';sel=null;over=false;quiet=0;last=null;busy=false;res='';intro=true;fresh=false;burst=false;
+    legal=gen(B,'w');
+  }
+  function finish(r){
+    over=true;res=r;if(r==='w')burst=true;
+    if(r==='w')score.w++;else if(r==='b')score.l++;else score.d++;
+  }
+  function doMove(m){
+    var p=B[m.from];
+    if(m.cap.length||!isK(p))quiet=0;else quiet++;
+    var capP=m.cap.map(function(x){return B[x]}),man=!isK(p);B=apply(B,m);last={from:m.from,to:m.to,cap:m.cap,capP:capP,promo:man&&isK(B[m.to])};fresh=true;sel=null;
+    turn=turn==='w'?'b':'w';
+    legal=gen(B,turn);
+    if(!legal.length)finish(turn==='w'?'b':'w');
+    else if(quiet>=40)finish('d');
+    render();
+    if(!over&&turn==='b'){
+      busy=true;
+      setTimeout(function(){busy=false;var mv=chooseAI();doMove(mv)},rm?0:500);
+    }
+  }
+  function tap(i){
+    if(over||busy||turn!=='w')return;
+    if(sel!==null){
+      for(var k=0;k<legal.length;k++){
+        if(legal[k].from===sel&&legal[k].to===i){doMove(legal[k]);return}
+      }
+    }
+    var p=B[i];
+    if(p&&sd(p)==='w'&&legal.some(function(m){return m.from===i}))sel=i;else sel=null;
+    render();
+  }
+  function btn(txt,fn,pressed){
+    var b=h('button','',txt);b.type='button';b.onclick=fn;
+    if(pressed!==undefined)b.setAttribute('aria-pressed',pressed);return b;
+  }
+  function render(){
+    var fx=fresh,it=intro,bu=burst;fresh=false;intro=false;burst=false;
+    root.textContent='';
+    var nw=0,nb=0;B.forEach(function(p){if(p){if(sd(p)==='w')nw++;else nb++}});
+    var must=!over&&turn==='w'&&legal.length&&legal[0].cap.length;
+    var st=over?(res==='w'?L('คุณชนะ! 🎉','You win! 🎉'):res==='b'?L('คอมชนะ ลองใหม่อีกครั้งนะ','Computer wins. Try again!'):L('เสมอ 🤝','Draw 🤝'))
+      :turn==='b'?L('คอมกำลังคิด…','Computer is thinking…')
+      :must?L('ต้องกิน! เลือกหมากที่กะพริบ','Capture is mandatory! Pick a pulsing piece.')
+      :L('ตาคุณ (สีฟ้า) แตะหมากที่จะเดิน','Your turn (blue). Tap a piece.');
+    root.appendChild(h('p','ckst',st));
+    var bd=h('div','ckb');bd.setAttribute('role','grid');
+    var dsts=sel===null?[]:legal.filter(function(m){return m.from===sel}).map(function(m){return m.to});
+    var cans=turn==='w'&&!over?legal.map(function(m){return m.from}):[];
+    for(var i=0;i<64;i++){
+      var r=i>>3,c=i&7,dark=(r+c)%2===1,cell;
+      if(!dark){cell=h('div','sq lt');bd.appendChild(cell);continue}
+      cell=h('button','sq dk');cell.type='button';
+      (function(ix){cell.onclick=function(){tap(ix)}})(i);
+      if(sel===i)cell.classList.add('sel');
+      if(dsts.indexOf(i)>=0)cell.classList.add('dst');
+      if(last&&(last.from===i||last.to===i))cell.classList.add('lm');
+      var p=B[i];
+      if(p){
+        var pc=h('span','pc '+sd(p),isK(p)?'♛':'');
+        if(fx&&last&&last.to===i){
+          pc.classList.add('ckmv');if(last.promo)pc.classList.add('crown');
+          pc.style.setProperty('--dx',(((last.from&7)-(i&7))/0.78*100)+'%');
+          pc.style.setProperty('--dy',(((last.from>>3)-(i>>3))/0.78*100)+'%');
+        }else if(it){pc.classList.add('pop');pc.style.animationDelay=(i*8)+'ms'}
+        cell.appendChild(pc);
+        if(cans.indexOf(i)>=0&&sel===null)cell.classList.add('can');
+        cell.setAttribute('aria-label',(sd(p)==='w'?L('หมากคุณ','Your piece'):L('หมากคอม','CPU piece'))+(isK(p)?' ♛':''));
+      }else{
+        cell.setAttribute('aria-label',L('ช่องว่าง','Empty square'));
+        if(fx&&last){var gi=last.cap.indexOf(i);if(gi>=0){var gp=last.capP[gi];cell.appendChild(h('span','pc ghost '+sd(gp),isK(gp)?'♛':''))}}
+      }
+      bd.appendChild(cell);
+    }
+    root.appendChild(bd);
+    root.appendChild(h('p','ckcnt',L('หมากคุณ ','Yours ')+nw+' · '+L('คอม ','CPU ')+nb+'   |   '+L('ชนะ ','W ')+score.w+' '+L('แพ้ ','L ')+score.l+' '+L('เสมอ ','D ')+score.d));
+    var row=h('div','ckrow');
+    [[1,L('ง่าย','Easy')],[2,L('ปกติ','Normal')],[3,L('ยาก','Hard')]].forEach(function(o){
+      row.appendChild(btn(o[1],function(){lvl=o[0];render()},lvl===o[0]));
+    });
+    row.appendChild(btn(L('เริ่มใหม่','New game'),function(){init();render()}));
+    root.appendChild(row);
+    root.appendChild(h('p','ckrule',L('กติกาแบบหมากฮอสไทย: หมากธรรมดาเดินและกินไปข้างหน้าแนวทแยง ถ้ามีตัวให้กินต้องกิน ถึงแถวสุดท้ายกลายเป็นฮอส (♛) เดินและกินได้ไกลทุกทิศทแยง เสมอเมื่อ 40 ตาไม่มีการกินหรือเดินหมากธรรมดา','Thai checkers rules: men move and capture diagonally forward. Capturing is mandatory. Reaching the last row makes a king (♛) that moves and captures any distance diagonally. Draw after 40 plies without a capture or man move.')));
+    if(bu)ckConfetti();
+  }
+  var lg=document.getElementById('lang');if(lg)lg.addEventListener('click',render);
+  init();render();
 })();
 </script>
 </body>
