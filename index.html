@@ -163,7 +163,7 @@ header .art{z-index:3;top:10px;right:10px;width:96px;stroke:#fff;opacity:.85}
 <body>
 <div id="bar"></div>
 <canvas id="bg" aria-hidden="true"></canvas>
-<nav id="nav" aria-label="เมนูหลัก"><div class="nv"><a href="#about">เกี่ยวกับ</a><a href="#skills">ทักษะ</a><a href="#exp">ประสบการณ์</a><a href="#work">ที่ทำงาน</a><a href="#movies">หนัง</a><a href="#music">เพลง</a><a href="#game">เกม</a><a href="#contact">ติดต่อ</a></div></nav>
+<nav id="nav" aria-label="เมนูหลัก"><div class="nv"><a href="#about">เกี่ยวกับ</a><a href="#skills">ทักษะ</a><a href="#exp">ประสบการณ์</a><a href="#work">ที่ทำงาน</a><a href="#movies">หนัง</a><a href="#music">เพลง</a><a href="#game">เกม</a><a href="#mygame">เกมที่ทำ</a><a href="#contact">ติดต่อ</a></div></nav>
 <main>
   <header>
     <div class="banner" aria-hidden="true"><video id="bnv" autoplay muted loop playsinline preload="metadata" poster="banner.jpg" src="banner.mp4"></video></div>
@@ -232,6 +232,14 @@ header .art{z-index:3;top:10px;right:10px;width:96px;stroke:#fff;opacity:.85}
   <section id="game">
     <h2>เกมทดสอบภาษาอังกฤษ</h2>
     <div class="quiz" id="quiz" aria-live="polite"></div>
+  </section>
+
+  <section id="mygame">
+    <h2>เกมที่ฉันทำ</h2>
+    <a class="pl gm" href="game.html">
+      <span class="pi" aria-hidden="true">🏰</span>
+      <span class="pt"><b>ป้อมปราการพิทักษ์อาณาจักร</b><span>เกมป้องกันป้อม · แตะเพื่อเล่น ▶</span></span>
+    </a>
   </section>
 
   <section id="contact">
@@ -366,7 +374,7 @@ header .art{z-index:3;top:10px;right:10px;width:96px;stroke:#fff;opacity:.85}
     ['.stat span',['Year finished ปวช. (B.E.)','Year finished ปวส. (B.E.)','Past workplaces']],
     ['.status span',['Online · 🎧 Listening to Favorite songs']],
     ['.idea small',['Favorite quotes']],
-    ['section h2',['About me','Skills','Experience','Past workplaces','Favorite movies','Favorite music','English quiz','Contact me']],
+    ['section h2',['About me','Skills','Experience','Past workplaces','Favorite movies','Favorite music','English quiz','My game','Contact me']],
     ['section > p.e',['I’m a sergeant cadet at the Army NCO School in Prachuap Khiri Khan. I like listening to music, play games in my free time, enjoy learning about IT, and love cats. I finished ปวช. in 2023 (B.E. 2566) and ปวส. in 2025 (B.E. 2568), both at Wang Nam Yen Technical College.']],
     ['.chips li',['Computers / IT','English']],
     ['.tl li b',['Sergeant cadet','Finished ปวส.','Finished ปวช.']],
@@ -376,8 +384,10 @@ header .art{z-index:3;top:10px;right:10px;width:96px;stroke:#fff;opacity:.85}
     ['.card .bk',['Used to work at CPRAM in Chonburi.','Used to work at Sony Technology Thailand in Chonburi.']],
     ['.links a.chat',['💬 Chat on IG']],
     ['.copy',['Copy IG','Copy page link']],
-    ['#nav a',['About','Skills','Experience','Workplaces','Movies','Music','Quiz','Contact']],
+    ['#nav a',['About','Skills','Experience','Workplaces','Movies','Music','Quiz','My game','Contact']],
     ['.tf button',['All','Education','Present']],
+    ['.gm b',['Kingdom Defense Fortress']],
+    ['.gm span span',['Tower defense game · tap to play ▶']],
     ['footer',['Information provided by the page owner. 🐾']]
   ];
   T.forEach(function(p){document.querySelectorAll(p[0]).forEach(function(el){el.dataset.th=el.textContent})});
