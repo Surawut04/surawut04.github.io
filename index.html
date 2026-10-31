@@ -248,12 +248,31 @@ main[data-tab="p"] .tg,#nav[data-tab="p"] .tg{display:none}
 .mvd dt{font-weight:700;color:var(--accent);white-space:nowrap}
 .mvd dd{margin:0}
 .mvp{margin:14px 0 0;line-height:1.7;font-size:.97rem}
+main[data-tab="s"] .tp,main[data-tab="s"] .tg,#nav[data-tab="s"] .tp,#nav[data-tab="s"] .tg{display:none}
+main:not([data-tab="s"]) .ts,#nav:not([data-tab="s"]) .ts{display:none}
+.tabs{flex-wrap:wrap}.tabs button{padding:10px 14px}
+.vc{display:flex;flex-direction:column;align-items:center;gap:4px;padding:22px 16px;background:var(--surface);border:2px solid var(--ink);border-radius:14px;box-shadow:4px 4px 0 var(--hl);text-align:center}
+.vc strong{font:700 clamp(2.4rem,12vw,3.6rem)/1.1 "Prompt","Sarabun",sans-serif;color:var(--accent)}
+.vc span{color:var(--muted)}
+.vcm{margin:10px 0 18px;color:var(--muted);font-size:.88rem;text-align:center}
+#menu{position:fixed;left:12px;top:calc(58px + env(safe-area-inset-top,0px));z-index:18;width:44px;height:44px;padding:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;background:var(--surface);border:2px solid var(--ink);border-radius:12px;box-shadow:3px 3px 0 var(--accent);cursor:pointer}
+#menu span{display:block;width:20px;height:2.5px;border-radius:2px;background:var(--ink)}
+#dov{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.5);opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}
+#drawer{position:fixed;top:0;left:0;bottom:0;z-index:41;width:min(270px,82vw);padding:calc(16px + env(safe-area-inset-top,0px)) 16px calc(16px + env(safe-area-inset-bottom,0px));background:var(--surface);color:var(--ink);border-right:2px solid var(--ink);box-shadow:6px 0 0 var(--accent);transform:translateX(-105%);visibility:hidden;transition:transform .28s ease,visibility .28s;overflow-y:auto}
+body.mo #dov{opacity:1;visibility:visible}
+body.mo #drawer{transform:none;visibility:visible}
+#drawer .dh{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+#drawer .dh b{font:600 1.1rem "Prompt","Sarabun",sans-serif}
+#dcl{width:38px;height:38px;border-radius:50%;border:2px solid var(--ink);background:var(--bg);color:var(--ink);font:700 1rem/1 "Prompt",sans-serif;cursor:pointer}
+#drawer .tabs{flex-direction:column;align-items:stretch;flex-wrap:nowrap;justify-content:flex-start;gap:10px;margin:0}
+#drawer .tabs button{width:100%;text-align:left;padding:12px 16px;font-size:1rem}
+@media (prefers-reduced-motion:reduce){#drawer,#dov{transition:none}}
 </style>
 </head>
 <body>
 <div id="bar"></div>
 <canvas id="bg" aria-hidden="true"></canvas><svg class="web w1" viewBox="0 0 200 200" aria-hidden="true" fill="none" stroke="var(--ink)" stroke-width="1" stroke-linecap="round"><path d="M0 0L200 0M0 0L193.2 51.8M0 0L173.2 100M0 0L141.4 141.4M0 0L100 173.2M0 0L51.8 193.2M0 0L0 200"/><path d="M34 0Q29.9 3.9 32.8 8.8Q27.9 11.5 29.4 17Q23.9 18.4 24 24Q18.4 23.9 17 29.4Q11.5 27.9 8.8 32.8Q3.9 29.9 0 34M64 0Q56.3 7.4 61.8 16.6Q52.5 21.7 55.4 32Q45.1 34.6 45.3 45.3Q34.6 45.1 32 55.4Q21.7 52.5 16.6 61.8Q7.4 56.3 0 64M98 0Q86.2 11.4 94.7 25.4Q80.4 33.3 84.9 49Q69 53 69.3 69.3Q53 69 49 84.9Q33.3 80.4 25.4 94.7Q11.4 86.2 0 98M138 0Q121.4 16 133.3 35.7Q113.2 46.9 119.5 69Q97.2 74.6 97.6 97.6Q74.6 97.2 69 119.5Q46.9 113.2 35.7 133.3Q16 121.4 0 138M184 0Q161.9 21.3 177.7 47.6Q150.9 62.5 159.3 92Q129.6 99.4 130.1 130.1Q99.4 129.6 92 159.3Q62.5 150.9 47.6 177.7Q21.3 161.9 0 184"/><g fill="var(--hl)" stroke="none"><circle cx="55.4" cy="32" r="2.2"/><circle cx="49" cy="84.9" r="2.2"/><circle cx="133.3" cy="35.7" r="2.2"/><circle cx="47.6" cy="177.7" r="2.2"/><circle cx="24" cy="24" r="2.2"/></g></svg><svg class="web w2" viewBox="0 0 200 200" aria-hidden="true" fill="none" stroke="var(--ink)" stroke-width="1" stroke-linecap="round"><path d="M0 0L200 0M0 0L193.2 51.8M0 0L173.2 100M0 0L141.4 141.4M0 0L100 173.2M0 0L51.8 193.2M0 0L0 200"/><path d="M34 0Q29.9 3.9 32.8 8.8Q27.9 11.5 29.4 17Q23.9 18.4 24 24Q18.4 23.9 17 29.4Q11.5 27.9 8.8 32.8Q3.9 29.9 0 34M64 0Q56.3 7.4 61.8 16.6Q52.5 21.7 55.4 32Q45.1 34.6 45.3 45.3Q34.6 45.1 32 55.4Q21.7 52.5 16.6 61.8Q7.4 56.3 0 64M98 0Q86.2 11.4 94.7 25.4Q80.4 33.3 84.9 49Q69 53 69.3 69.3Q53 69 49 84.9Q33.3 80.4 25.4 94.7Q11.4 86.2 0 98M138 0Q121.4 16 133.3 35.7Q113.2 46.9 119.5 69Q97.2 74.6 97.6 97.6Q74.6 97.2 69 119.5Q46.9 113.2 35.7 133.3Q16 121.4 0 138M184 0Q161.9 21.3 177.7 47.6Q150.9 62.5 159.3 92Q129.6 99.4 130.1 130.1Q99.4 129.6 92 159.3Q62.5 150.9 47.6 177.7Q21.3 161.9 0 184"/><g fill="var(--hl)" stroke="none"><circle cx="55.4" cy="32" r="2.2"/><circle cx="49" cy="84.9" r="2.2"/><circle cx="133.3" cy="35.7" r="2.2"/><circle cx="47.6" cy="177.7" r="2.2"/><circle cx="24" cy="24" r="2.2"/></g></svg><svg class="spd" viewBox="0 0 40 110" aria-hidden="true"><path d="M20 0V72" stroke="var(--ink)" stroke-width="1.2" opacity=".6"/><g stroke="var(--ink)" stroke-width="1.6" fill="none" stroke-linecap="round"><path d="M16 84l-9-6-3-6M16 87l-10 1-3 7M17 91l-8 7-1 6M19 93l-4 10v5M24 84l9-6 3-6M24 87l10 1 3 7M23 91l8 7 1 6M21 93l4 10v5"/></g><ellipse cx="20" cy="86" rx="7" ry="8.5" fill="var(--accent)" stroke="var(--ink)" stroke-width="1.6"/><circle cx="20" cy="76" r="4.5" fill="var(--ink)"/></svg>
-<nav id="nav" aria-label="เมนูหลัก"><div class="nv"><a class="tp" href="#about">เกี่ยวกับ</a><a class="tp" href="#skills">ทักษะ</a><a class="tp" href="#exp">ประสบการณ์</a><a class="tp" href="#work">ที่ทำงาน</a><a class="tp" href="#movies">หนัง</a><a class="tp" href="#music">เพลง</a><a class="tg" href="#game">เกม</a><a class="tg" href="#mygame">เกมที่ทำ</a><a class="tg" href="#checkers">หมากฮอส</a><a href="#contact">ติดต่อ</a></div></nav>
+<nav id="nav" aria-label="เมนูหลัก"><div class="nv"><a class="tp" href="#about">เกี่ยวกับ</a><a class="tp" href="#skills">ทักษะ</a><a class="tp" href="#exp">ประสบการณ์</a><a class="tp" href="#work">ที่ทำงาน</a><a class="tp" href="#movies">หนัง</a><a class="tp" href="#music">เพลง</a><a class="tg" href="#game">เกม</a><a class="tg" href="#mygame">เกมที่ทำ</a><a class="tg" href="#checkers">หมากฮอส</a><a class="ts" href="#stats">สถิติ</a><a href="#contact">ติดต่อ</a></div></nav>
 <main>
   <header>
     <div class="banner" aria-hidden="true"><video id="bnv" autoplay muted loop playsinline preload="metadata" poster="banner.jpg" src="banner.mp4"></video></div>
@@ -263,7 +282,6 @@ main[data-tab="p"] .tg,#nav[data-tab="p"] .tg{display:none}
     <p class="lead e">เป็นคนธรรมดาที่ชอบฟังเพลง ว่างๆ ชอบเล่นเกม และชอบเรียนรู้เรื่อง IT</p>
   <svg class="art" viewBox="0 0 120 100" aria-hidden="true" fill="none" stroke="var(--ink)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity=".7"><path d="M118 2L4 12M118 2L10 56M118 2L44 94M118 2L96 98M118 2V100"/><path d="M83.8 5 85.6 18.2 95.8 29.6 111.4 30.8 118 31.4M49.6 8 53.2 34.4 73.6 57.2 104.8 59.6 118 62.8M15.4 11 20.8 50.6 51.4 84.8 98.2 88.4 118 92"/></svg>
   </header>
-  <div class="tabs" role="tablist"><button type="button" role="tab" data-t="p" aria-selected="true">👤 โปรไฟล์</button><button type="button" role="tab" data-t="g" aria-selected="false">🎮 เกมทั้งหมด</button></div>
   <div class="stats tp">
     <div class="stat"><strong data-to="2566" data-fmt="0">2566</strong><span>ปีที่จบ ปวช.</span></div>
     <div class="stat"><strong data-to="2568" data-fmt="0">2568</strong><span>ปีที่จบ ปวส.</span></div>
@@ -338,6 +356,16 @@ main[data-tab="p"] .tg,#nav[data-tab="p"] .tg{display:none}
     <div class="ck" id="ck"></div>
   </section>
 
+  <section id="stats" class="ts">
+    <h2>สถิติการเข้าชม</h2>
+    <div class="vc"><strong id="vcn" aria-live="polite">—</strong><span id="vcl">ครั้งที่เข้าชมเว็บไซต์ทั้งหมด</span></div>
+    <p class="vcm" id="vcm">ตัวเลขอัปเดตทุกประมาณ 30 นาที</p>
+    <a class="pl" href="https://surawut.goatcounter.com" target="_blank" rel="noopener">
+      <span class="pi" aria-hidden="true">📊</span>
+      <span class="pt"><b id="vdb">แดชบอร์ดสถิติ</b><span id="vds">สำหรับเจ้าของเว็บ · ต้องล็อกอิน ↗</span></span>
+    </a>
+  </section>
+
   <section id="contact">
     <h2>ติดต่อฉัน</h2>
     <div class="links">
@@ -354,6 +382,12 @@ main[data-tab="p"] .tg,#nav[data-tab="p"] .tg{display:none}
 <button id="theme" type="button" aria-label="สลับโหมดสว่าง/มืด">🌓</button>
 <button id="lang" type="button" aria-label="Switch language">EN</button>
 <div id="toast" role="status"></div>
+<button id="menu" type="button" aria-label="เมนู" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
+<div id="dov"></div>
+<aside id="drawer" aria-label="เมนูแท็บ">
+  <div class="dh"><b id="dht">เมนู</b><button id="dcl" type="button" aria-label="ปิด">✕</button></div>
+  <div class="tabs" role="tablist"><button type="button" role="tab" data-t="p" aria-selected="true">👤 โปรไฟล์</button><button type="button" role="tab" data-t="g" aria-selected="false">🎮 เกมทั้งหมด</button><button type="button" role="tab" data-t="s" aria-selected="false">📊 สถิติ</button></div>
+</aside>
 <script>
 (function(){
   var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
@@ -482,7 +516,7 @@ main[data-tab="p"] .tg,#nav[data-tab="p"] .tg{display:none}
     ['.stat span',['Year finished ปวช. (B.E.)','Year finished ปวส. (B.E.)','Past workplaces']],
     ['.status span',['Online · 🎧 Listening to keshi - LIMBO (Visualizer)']],
     ['.idea small',['Favorite quotes']],
-    ['section h2',['About me','Skills','Experience','Past workplaces','Favorite movies','Favorite music','My game','English quiz','Checkers','Contact me']],
+    ['section h2',['About me','Skills','Experience','Past workplaces','Favorite movies','Favorite music','My game','English quiz','Checkers','Visit stats','Contact me']],
     ['section > p.e',['I like listening to music, play games in my free time, enjoy learning about IT, and love cats.']],
     ['.chips li',['Computers / IT','English']],
     ['.tl li b',['Sergeant cadet','Finished ปวส.','Finished ปวช.']],
@@ -492,7 +526,7 @@ main[data-tab="p"] .tg,#nav[data-tab="p"] .tg{display:none}
     ['.card .bk',['Used to work at CPRAM in Chonburi.','Used to work at Sony Technology Thailand in Chonburi.']],
     ['.links a.chat',['💬 Chat on IG']],
     ['.copy',['Copy IG','Copy page link']],
-    ['#nav a',['About','Skills','Experience','Workplaces','Movies','Music','Quiz','My game','Checkers','Contact']],
+    ['#nav a',['About','Skills','Experience','Workplaces','Movies','Music','Quiz','My game','Checkers','Stats','Contact']],
     ['.tf button',['All','Education','Present']],
     ['.gm b',['Kingdom Defense Fortress']],
     ['.gm span span',['Tower defense game · tap to play ▶']],
@@ -636,11 +670,11 @@ main[data-tab="p"] .tg,#nav[data-tab="p"] .tg{display:none}
   function tab(t,push){
     main.dataset.tab=nav.dataset.tab=t;
     bs.forEach(function(b){b.setAttribute('aria-selected',b.dataset.t===t)});
-    if(push){try{history.replaceState(null,'',t==='g'?'#games':location.pathname)}catch(e){}}
+    if(push){try{history.replaceState(null,'',t==='g'?'#games':t==='s'?'#stats':location.pathname)}catch(e){}}
   }
-  bs.forEach(function(b){b.addEventListener('click',function(){tab(b.dataset.t,true);var r=document.querySelector('.tabs').getBoundingClientRect();window.scrollTo({top:Math.max(0,scrollY+r.top-70)})})});
+  bs.forEach(function(b){b.addEventListener('click',function(){tab(b.dataset.t,true);var hd=document.querySelector('header').getBoundingClientRect();window.scrollTo({top:Math.max(0,scrollY+hd.bottom-60)})})});
   var h=location.hash;
-  tab(h==='#games'||h==='#game'||h==='#mygame'?'g':'p',false);
+  tab(h==='#stats'?'s':h==='#games'||h==='#game'||h==='#mygame'?'g':'p',false);
   if(h==='#game'||h==='#mygame'){var el=document.querySelector(h);if(el)setTimeout(function(){el.scrollIntoView()},50)}
   /* label translation */
   var _=document.getElementById('lang');
@@ -893,6 +927,22 @@ main[data-tab="p"] .tg,#nav[data-tab="p"] .tg{display:none}
   a.addEventListener('ended',function(){ui(false)});
   var lg=document.getElementById('lang');if(lg)lg.addEventListener('click',function(){ui(!a.paused)});
   ui(false);
+  /* autoplay: try on load; browsers usually block it, so retry on the first tap/key press */
+  var armed=true,EV=['pointerup','touchend','keydown','click'];
+  function stopArm(){armed=false;EV.forEach(function(n){document.removeEventListener(n,go,true)})}
+  function tryPlay(){
+    if(!armed||fb||a.networkState===3||!a.paused)return;
+    var p=a.play();
+    if(p&&p.then)p.then(function(){ui(true);stopArm()},function(){});
+    else ui(!a.paused);
+  }
+  function go(e){
+    if(e.target&&e.target.closest&&e.target.closest('#mfab')){stopArm();return}
+    tryPlay();
+  }
+  EV.forEach(function(n){document.addEventListener(n,go,true)});
+  a.addEventListener('error',stopArm);
+  tryPlay();
 })();
 </script>
 <script>document.querySelectorAll('.pst').forEach(function(i){function x(){i.remove()}if(i.complete&&!i.naturalWidth)x();else i.addEventListener('error',x)});</script>
@@ -962,6 +1012,54 @@ main[data-tab="p"] .tg,#nav[data-tab="p"] .tg{display:none}
   if(lb)lb.addEventListener('click',function(){
     if(hint)hint.textContent=window.__en?'Tap a card to see movie info':'แตะการ์ดเพื่อดูข้อมูลหนัง';
     render();
+  });
+})();
+</script>
+<script data-goatcounter="https://surawut.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+<script>
+(function(){
+  var main=document.querySelector('main'),n=document.getElementById('vcn');
+  if(!main||!n)return;
+  var lab=document.getElementById('vcl'),msg=document.getElementById('vcm'),db=document.getElementById('vdb'),ds=document.getElementById('vds');
+  var sb=document.querySelector('.tabs button[data-t="s"]'),lg=document.getElementById('lang');
+  var U='https://surawut.goatcounter.com/counter/TOTAL.json',busy=false,val=null,fail=false;
+  function L(th,e){return window.__en?e:th}
+  function paint(){
+    n.textContent=val!==null?val:'—';
+    lab.textContent=L('ครั้งที่เข้าชมเว็บไซต์ทั้งหมด','total page views');
+    msg.textContent=fail?L('ยังโหลดตัวเลขไม่ได้ ลองใหม่ภายหลัง','Could not load the count right now.'):L('ตัวเลขอัปเดตทุกประมาณ 30 นาที','The count refreshes about every 30 minutes.');
+    db.textContent=L('แดชบอร์ดสถิติ','Stats dashboard');
+    ds.textContent=L('สำหรับเจ้าของเว็บ · ต้องล็อกอิน ↗','For the site owner · login required ↗');
+  }
+  function load(){
+    if(busy||val!==null||!window.fetch)return;busy=true;
+    fetch(U).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(d){val=d.count;fail=false;busy=false;paint()}).catch(function(){fail=true;busy=false;paint()});
+  }
+  if(sb)sb.addEventListener('click',load);
+  if(main.dataset.tab==='s')load();
+  if(lg)lg.addEventListener('click',function(){if(sb)sb.textContent=window.__en?'📊 Stats':'📊 สถิติ';paint()});
+  paint();
+})();
+</script>
+<script>
+(function(){
+  var mb=document.getElementById('menu'),dr=document.getElementById('drawer'),ov=document.getElementById('dov'),cl=document.getElementById('dcl'),ti=document.getElementById('dht');
+  if(!mb||!dr)return;
+  var bs=dr.querySelectorAll('.tabs button'),lg=document.getElementById('lang');
+  function open(){document.body.classList.add('mo');mb.setAttribute('aria-expanded','true');var a=dr.querySelector('[aria-selected="true"]')||bs[0];setTimeout(function(){a.focus()},60)}
+  function close(back){document.body.classList.remove('mo');mb.setAttribute('aria-expanded','false');if(back)mb.focus()}
+  mb.addEventListener('click',function(){document.body.classList.contains('mo')?close(true):open()});
+  cl.addEventListener('click',function(){close(true)});
+  ov.addEventListener('click',function(){close(true)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&document.body.classList.contains('mo'))close(true)});
+  bs.forEach(function(b){b.addEventListener('click',function(){close(false)})});
+  if(lg)lg.addEventListener('click',function(){
+    var en=window.__en;
+    ti.textContent=en?'Menu':'เมนู';
+    mb.setAttribute('aria-label',en?'Menu':'เมนู');
+    cl.setAttribute('aria-label',en?'Close':'ปิด');
+    dr.setAttribute('aria-label',en?'Tab menu':'เมนูแท็บ');
   });
 })();
 </script>
