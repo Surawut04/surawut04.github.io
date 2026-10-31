@@ -141,6 +141,17 @@ h2{display:inline-block;transform:skew(-6deg);background:var(--accent);color:var
 #nav{border-bottom:2px solid var(--ink)}
 @media (min-width:900px){.tl li{border:2px solid var(--ink);box-shadow:4px 4px 0 var(--hl)}}
 #nav{background:var(--bg);-webkit-backdrop-filter:none;backdrop-filter:none}#nav .nv{position:relative}
+/* decorative webs */
+.web{position:fixed;z-index:-1;width:min(38vw,220px);height:auto;pointer-events:none;opacity:.55}
+.w1{top:44px;left:0}
+.w2{bottom:0;right:0;transform:scale(-1,-1)}
+.spd{position:fixed;z-index:-1;top:44px;right:14%;width:34px;height:auto;pointer-events:none;transform-origin:50% 0;animation:swing 5s ease-in-out infinite alternate}
+@keyframes swing{from{transform:rotate(-7deg)}to{transform:rotate(7deg)}}
+@media (prefers-reduced-motion:reduce){.spd{animation:none}}
+a#mfab{text-decoration:none;line-height:1;transition:transform .2s}a#mfab:hover{transform:translateY(-3px) rotate(-8deg)}
+.pst{display:block;width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:8px;border:2px solid var(--ink);margin-bottom:10px}
+.mvs:has(.pst){grid-template-columns:1fr 1fr}
+@media (min-width:600px){.mvs:has(.pst){grid-template-columns:repeat(4,1fr)}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 .banner{position:relative;height:170px;border:2px solid var(--ink);border-radius:16px;box-shadow:4px 4px 0 var(--hl);overflow:hidden;background:linear-gradient(120deg,var(--accent) 0%,#7b2ff7 55%,var(--hl) 100%)}
 .banner::before{content:"";position:absolute;inset:0;background:radial-gradient(rgba(0,0,0,.28) 1.4px,transparent 1.6px) 0 0/9px 9px;mix-blend-mode:multiply;opacity:.55}
@@ -219,19 +230,36 @@ main[data-tab="p"] .tg,#nav[data-tab="p"] .tg{display:none}
 @keyframes ckfade{from{opacity:0;transform:translateY(-4px)}}
 .ckrow button:active{transform:translate(2px,2px);box-shadow:none}
 @media (prefers-reduced-motion:reduce){.pc,.sq.dst::after,.ckst{animation:none!important;transition:none!important}}
+.mvh{margin:-4px 0 14px;color:var(--muted);font-size:.9rem}
+#movies .mv{cursor:pointer;-webkit-tap-highlight-color:transparent}
+#movies .mv:focus-visible{outline:3px solid var(--hl);outline-offset:3px}
+.mvo{position:fixed;inset:0;z-index:100;display:none;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.55)}
+.mvo.on{display:flex}
+.mvs2{position:relative;width:100%;max-width:520px;max-height:88vh;overflow-y:auto;background:var(--surface);color:var(--ink);border:2px solid var(--ink);border-radius:18px 18px 0 0;box-shadow:0 -4px 0 var(--accent);padding:20px 18px calc(22px + env(safe-area-inset-bottom,0px));animation:mvup .28s ease both}
+@keyframes mvup{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+@media (min-width:640px){.mvo{align-items:center}.mvs2{border-radius:18px;box-shadow:6px 6px 0 var(--accent)}}
+@media (prefers-reduced-motion:reduce){.mvs2{animation:none}}
+.mvx{position:absolute;top:10px;right:10px;width:38px;height:38px;border-radius:50%;border:2px solid var(--ink);background:var(--bg);color:var(--ink);font:700 1.1rem/1 "Prompt",sans-serif;cursor:pointer}
+.mvt{display:flex;gap:14px;align-items:flex-start;padding-right:42px;margin-bottom:14px}
+.mvt img{flex:none;width:84px;aspect-ratio:2/3;object-fit:cover;border-radius:8px;border:2px solid var(--ink)}
+.mvt h3{margin:0 0 4px;font:600 1.2rem/1.3 "Prompt","Sarabun",sans-serif}
+.mvt span{color:var(--muted);font-size:.92rem}
+.mvd{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 14px;font-size:.95rem;line-height:1.55}
+.mvd dt{font-weight:700;color:var(--accent);white-space:nowrap}
+.mvd dd{margin:0}
+.mvp{margin:14px 0 0;line-height:1.7;font-size:.97rem}
 </style>
 </head>
 <body>
 <div id="bar"></div>
-<canvas id="bg" aria-hidden="true"></canvas>
+<canvas id="bg" aria-hidden="true"></canvas><svg class="web w1" viewBox="0 0 200 200" aria-hidden="true" fill="none" stroke="var(--ink)" stroke-width="1" stroke-linecap="round"><path d="M0 0L200 0M0 0L193.2 51.8M0 0L173.2 100M0 0L141.4 141.4M0 0L100 173.2M0 0L51.8 193.2M0 0L0 200"/><path d="M34 0Q29.9 3.9 32.8 8.8Q27.9 11.5 29.4 17Q23.9 18.4 24 24Q18.4 23.9 17 29.4Q11.5 27.9 8.8 32.8Q3.9 29.9 0 34M64 0Q56.3 7.4 61.8 16.6Q52.5 21.7 55.4 32Q45.1 34.6 45.3 45.3Q34.6 45.1 32 55.4Q21.7 52.5 16.6 61.8Q7.4 56.3 0 64M98 0Q86.2 11.4 94.7 25.4Q80.4 33.3 84.9 49Q69 53 69.3 69.3Q53 69 49 84.9Q33.3 80.4 25.4 94.7Q11.4 86.2 0 98M138 0Q121.4 16 133.3 35.7Q113.2 46.9 119.5 69Q97.2 74.6 97.6 97.6Q74.6 97.2 69 119.5Q46.9 113.2 35.7 133.3Q16 121.4 0 138M184 0Q161.9 21.3 177.7 47.6Q150.9 62.5 159.3 92Q129.6 99.4 130.1 130.1Q99.4 129.6 92 159.3Q62.5 150.9 47.6 177.7Q21.3 161.9 0 184"/><g fill="var(--hl)" stroke="none"><circle cx="55.4" cy="32" r="2.2"/><circle cx="49" cy="84.9" r="2.2"/><circle cx="133.3" cy="35.7" r="2.2"/><circle cx="47.6" cy="177.7" r="2.2"/><circle cx="24" cy="24" r="2.2"/></g></svg><svg class="web w2" viewBox="0 0 200 200" aria-hidden="true" fill="none" stroke="var(--ink)" stroke-width="1" stroke-linecap="round"><path d="M0 0L200 0M0 0L193.2 51.8M0 0L173.2 100M0 0L141.4 141.4M0 0L100 173.2M0 0L51.8 193.2M0 0L0 200"/><path d="M34 0Q29.9 3.9 32.8 8.8Q27.9 11.5 29.4 17Q23.9 18.4 24 24Q18.4 23.9 17 29.4Q11.5 27.9 8.8 32.8Q3.9 29.9 0 34M64 0Q56.3 7.4 61.8 16.6Q52.5 21.7 55.4 32Q45.1 34.6 45.3 45.3Q34.6 45.1 32 55.4Q21.7 52.5 16.6 61.8Q7.4 56.3 0 64M98 0Q86.2 11.4 94.7 25.4Q80.4 33.3 84.9 49Q69 53 69.3 69.3Q53 69 49 84.9Q33.3 80.4 25.4 94.7Q11.4 86.2 0 98M138 0Q121.4 16 133.3 35.7Q113.2 46.9 119.5 69Q97.2 74.6 97.6 97.6Q74.6 97.2 69 119.5Q46.9 113.2 35.7 133.3Q16 121.4 0 138M184 0Q161.9 21.3 177.7 47.6Q150.9 62.5 159.3 92Q129.6 99.4 130.1 130.1Q99.4 129.6 92 159.3Q62.5 150.9 47.6 177.7Q21.3 161.9 0 184"/><g fill="var(--hl)" stroke="none"><circle cx="55.4" cy="32" r="2.2"/><circle cx="49" cy="84.9" r="2.2"/><circle cx="133.3" cy="35.7" r="2.2"/><circle cx="47.6" cy="177.7" r="2.2"/><circle cx="24" cy="24" r="2.2"/></g></svg><svg class="spd" viewBox="0 0 40 110" aria-hidden="true"><path d="M20 0V72" stroke="var(--ink)" stroke-width="1.2" opacity=".6"/><g stroke="var(--ink)" stroke-width="1.6" fill="none" stroke-linecap="round"><path d="M16 84l-9-6-3-6M16 87l-10 1-3 7M17 91l-8 7-1 6M19 93l-4 10v5M24 84l9-6 3-6M24 87l10 1 3 7M23 91l8 7 1 6M21 93l4 10v5"/></g><ellipse cx="20" cy="86" rx="7" ry="8.5" fill="var(--accent)" stroke="var(--ink)" stroke-width="1.6"/><circle cx="20" cy="76" r="4.5" fill="var(--ink)"/></svg>
 <nav id="nav" aria-label="เมนูหลัก"><div class="nv"><a class="tp" href="#about">เกี่ยวกับ</a><a class="tp" href="#skills">ทักษะ</a><a class="tp" href="#exp">ประสบการณ์</a><a class="tp" href="#work">ที่ทำงาน</a><a class="tp" href="#movies">หนัง</a><a class="tp" href="#music">เพลง</a><a class="tg" href="#game">เกม</a><a class="tg" href="#mygame">เกมที่ทำ</a><a class="tg" href="#checkers">หมากฮอส</a><a href="#contact">ติดต่อ</a></div></nav>
 <main>
   <header>
     <div class="banner" aria-hidden="true"><video id="bnv" autoplay muted loop playsinline preload="metadata" poster="banner.jpg" src="banner.mp4"></video></div>
-    <div class="pf"><div class="avatar" id="ini"><img src="data:image/jpeg;base64,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" alt="รูปโปรไฟล์" width="84" height="84"></div><i class="dot" aria-hidden="true"></i></div>
+    <div class="pf"><div class="avatar" id="ini"><img src="images/avatar.jpg" alt="รูปโปรไฟล์" width="84" height="84"></div><i class="dot" aria-hidden="true"></i></div>
     <h1 class="e">สวัสดี นิว อิอิ</h1>
-    <p class="role e">นักเรียนนายสิบ</p>
-    <a class="status" href="https://youtube.com/playlist?list=PLFBdFXObLp40Uwz1Y7nQeS41Wj7XsfBmQ&amp;si=Nz1H985c9J4UE3Xt" target="_blank" rel="noopener"><i aria-hidden="true"></i><span>ออนไลน์ · 🎧 กำลังฟัง Favorite songs</span></a>
+    <a class="status" href="https://www.youtube.com/results?search_query=keshi+Limbo" target="_blank" rel="noopener"><i aria-hidden="true"></i><span>ออนไลน์ · 🎧 กำลังฟังเพลง Limbo ของ keshi</span></a>
     <p class="lead e">เป็นคนธรรมดาที่ชอบฟังเพลง ว่างๆ ชอบเล่นเกม และชอบเรียนรู้เรื่อง IT</p>
   <svg class="art" viewBox="0 0 120 100" aria-hidden="true" fill="none" stroke="var(--ink)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity=".7"><path d="M118 2L4 12M118 2L10 56M118 2L44 94M118 2L96 98M118 2V100"/><path d="M83.8 5 85.6 18.2 95.8 29.6 111.4 30.8 118 31.4M49.6 8 53.2 34.4 73.6 57.2 104.8 59.6 118 62.8M15.4 11 20.8 50.6 51.4 84.8 98.2 88.4 118 92"/></svg>
   </header>
@@ -247,7 +275,7 @@ main[data-tab="p"] .tg,#nav[data-tab="p"] .tg{display:none}
     <button id="nextIdea" type="button">สุ่มคำคม</button>
   </div>
 
-  <section id="about" class="tp"><h2>เกี่ยวกับฉัน</h2><p class="e">ฉันเป็นนักเรียนนายสิบที่โรงเรียนนายสิบทหารบก จังหวัดประจวบคีรีขันธ์ ชอบฟังเพลง ว่างๆ ก็เล่นเกม ชอบเรียนรู้เรื่อง IT และรักแมว จบ ปวช. ในปี 2566 และ ปวส. ในปี 2568 จากวิทยาลัยเทคนิควังน้ำเย็น</p>
+  <section id="about" class="tp"><h2>เกี่ยวกับฉัน</h2><p class="e">ชอบฟังเพลง ว่างๆ ก็เล่นเกม ชอบเรียนรู้เรื่อง IT และรักแมว</p>
   </section>
 
   <section id="skills" class="tp">
@@ -260,8 +288,8 @@ main[data-tab="p"] .tg,#nav[data-tab="p"] .tg{display:none}
     <div class="tf" role="group" aria-label="กรองตามหมวด"><button type="button" data-f="all" aria-pressed="true">ทั้งหมด</button><button type="button" data-f="edu" aria-pressed="false">การศึกษา</button><button type="button" data-f="now" aria-pressed="false">ปัจจุบัน</button></div>
     <ul class="tl e">
       <li><b>นักเรียนนายสิบ</b><span>ปัจจุบัน · โรงเรียนนายสิบทหารบก ประจวบคีรีขันธ์</span></li>
-      <li><b>จบ ปวส.</b><span>2568</span></li>
-      <li><b>จบ ปวช.</b><span>2566</span></li>
+      <li><b>จบ ปวส.</b><span data-to="2568" data-fmt="0">2568</span></li>
+      <li><b>จบ ปวช.</b><span data-to="2566" data-fmt="0">2566</span></li>
     </ul>
   </section>
 
@@ -275,11 +303,12 @@ main[data-tab="p"] .tg,#nav[data-tab="p"] .tg{display:none}
 
   <section id="movies" class="tp">
     <h2>หนังที่ชอบ</h2>
+    <p class="mvh" id="mvh">แตะการ์ดเพื่อดูข้อมูลหนัง</p>
     <ul class="mvs">
-      <li class="mv"><b>Spider-Man: Into the Spider-Verse</b><span>2018</span></li>
-      <li class="mv"><b>Green Book</b><span>2018</span></li>
-      <li class="mv"><b>About Time</b><span>2013</span></li>
-      <li class="mv"><b>Low Season สุขสันต์วันโสด</b><span>2020</span></li>
+      <li class="mv"><img class="pst" src="images/poster-spider-verse.jpg" alt="โปสเตอร์ Spider-Man: Into the Spider-Verse" loading="lazy"><b>Spider-Man: Into the Spider-Verse</b><span>2018</span></li>
+      <li class="mv"><img class="pst" src="images/poster-green-book.jpg" alt="โปสเตอร์ Green Book" loading="lazy"><b>Green Book</b><span>2018</span></li>
+      <li class="mv"><img class="pst" src="images/poster-about-time.jpg" alt="โปสเตอร์ About Time" loading="lazy"><b>About Time</b><span>2013</span></li>
+      <li class="mv"><img class="pst" src="images/poster-low-season.jpg" alt="โปสเตอร์ Low Season สุขสันต์วันโสด" loading="lazy"><b>Low Season สุขสันต์วันโสด</b><span>2020</span></li>
     </ul>
   </section>
 
@@ -287,7 +316,7 @@ main[data-tab="p"] .tg,#nav[data-tab="p"] .tg{display:none}
     <h2>เพลงที่ชอบ</h2>
     <a class="pl" href="https://youtube.com/playlist?list=PLFBdFXObLp40Uwz1Y7nQeS41Wj7XsfBmQ&amp;si=Nz1H985c9J4UE3Xt" target="_blank" rel="noopener">
       <span class="pi" aria-hidden="true">▶</span>
-      <span class="pt"><b>Favorite songs</b><span>63 เพลง · เปิดเพลย์ลิสต์บน YouTube ↗</span><span class="eq" aria-hidden="true"></span></span>
+      <span class="pt"><b>Favorite songs</b><span><em data-to="63" style="font-style:normal">63</em> เพลง · เปิดเพลย์ลิสต์บน YouTube ↗</span><span class="eq" aria-hidden="true"></span></span>
     </a>
   </section>
 
@@ -358,17 +387,17 @@ main[data-tab="p"] .tg,#nav[data-tab="p"] .tg{display:none}
   /* 1 counters */
   var nums=document.querySelectorAll('[data-to]');
   function run(el){
-    var to=+el.dataset.to,suf=el.dataset.suf||'',t0=null;
+    if(window.__en&&el.closest('.tl'))return;cancelAnimationFrame(el._r);var to=+el.dataset.to,suf=el.dataset.suf||'',t0=null;
     if(rm){el.textContent=to+suf;return}
-    function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/1200,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)))+suf;if(p<1)requestAnimationFrame(f)}
+    function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/1200,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)))+suf;if(p<1)el._r=requestAnimationFrame(f)}
     requestAnimationFrame(f);
   }
   if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){run(e.target);io.unobserve(e.target)}})},{threshold:.6});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)run(e.target)})},{threshold:.6});
     nums.forEach(function(n){io.observe(n)});
   }
   /* 2 spider web: dots linked by lines, reacts to pointer */
-  var c=document.getElementById('bg'),x=c.getContext('2d'),W=0,H=0,P=[],pm=null,col='#888',acc='#d6182a',n=0,D=130;
+  var c=document.getElementById('bg'),x=c.getContext('2d'),W=0,H=0,P=[],pm=null,col='#888',acc='#d6182a',hl='#19b4ff',n=0,D=130;
   function size(){var d=devicePixelRatio||1;W=innerWidth;H=innerHeight;c.width=W*d;c.height=H*d;x.setTransform(d,0,0,d,0,0);
     var k=Math.max(26,Math.min(70,Math.round(W*H/12000)));
     while(P.length<k)P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35});
@@ -376,11 +405,19 @@ main[data-tab="p"] .tg,#nav[data-tab="p"] .tg{display:none}
   size();addEventListener('resize',size);
   addEventListener('pointermove',function(e){pm={x:e.clientX,y:e.clientY}},{passive:true});
   addEventListener('pointerup',function(e){if(e.pointerType!=='mouse')pm=null});
+  var R=[];
+  addEventListener('pointerdown',function(e){
+    if(rm)return;
+    if(R.length>6)R.shift();
+    R.push({x:e.clientX,y:e.clientY,t:performance.now()});
+    P.forEach(function(p){var dx=p.x-e.clientX,dy=p.y-e.clientY,d=Math.sqrt(dx*dx+dy*dy)||1;
+      if(d<150){var f=5*(1-d/150);p.kx=(p.kx||0)+dx/d*f;p.ky=(p.ky||0)+dy/d*f}});
+  },{passive:true});
   document.documentElement.addEventListener('mouseleave',function(){pm=null});
   function draw(){
-    if(n++%60===0){var cs=getComputedStyle(document.documentElement);col=cs.getPropertyValue('--ink').trim()||'#888';acc=cs.getPropertyValue('--accent').trim()||'#d6182a'}
+    if(n++%60===0){var cs=getComputedStyle(document.documentElement);col=cs.getPropertyValue('--ink').trim()||'#888';acc=cs.getPropertyValue('--accent').trim()||'#d6182a';hl=cs.getPropertyValue('--hl').trim()||'#19b4ff'}
     x.clearRect(0,0,W,H);
-    if(!rm)P.forEach(function(p){p.x+=p.vx;p.y+=p.vy;
+    if(!rm)P.forEach(function(p){var kx=p.kx||0,ky=p.ky||0;p.x+=p.vx+kx;p.y+=p.vy+ky;p.kx=kx*.92;p.ky=ky*.92;
       if(p.x<0){p.x=0;p.vx=Math.abs(p.vx)}else if(p.x>W){p.x=W;p.vx=-Math.abs(p.vx)}
       if(p.y<0){p.y=0;p.vy=Math.abs(p.vy)}else if(p.y>H){p.y=H;p.vy=-Math.abs(p.vy)}});
     x.lineWidth=1;x.strokeStyle=col;x.fillStyle=col;
@@ -392,6 +429,11 @@ main[data-tab="p"] .tg,#nav[data-tab="p"] .tg{display:none}
     }
     if(pm){x.strokeStyle=acc;P.forEach(function(p){var dx=p.x-pm.x,dy=p.y-pm.y,d=Math.sqrt(dx*dx+dy*dy);
       if(d<170){x.globalAlpha=(1-d/170)*.7;x.beginPath();x.moveTo(p.x,p.y);x.lineTo(pm.x,pm.y);x.stroke()}})}
+    var now=performance.now();
+    R=R.filter(function(r){var q=(now-r.t)/900;if(q>=1)return false;
+      x.lineWidth=2.5;x.strokeStyle=acc;x.globalAlpha=(1-q)*.7;x.beginPath();x.arc(r.x,r.y,q*170,0,6.283);x.stroke();
+      x.lineWidth=1.5;x.strokeStyle=hl;x.globalAlpha=(1-q)*.6;x.beginPath();x.arc(r.x,r.y,q*110,0,6.283);x.stroke();
+      return true});
     x.globalAlpha=1;
     if(!rm&&!document.hidden)requestAnimationFrame(draw);
     else if(!rm)setTimeout(function(){requestAnimationFrame(draw)},500);
@@ -436,13 +478,12 @@ main[data-tab="p"] .tg,#nav[data-tab="p"] .tg{display:none}
   /* 7 language switch */
   var T=[
     ['h1',['Hi, New อิอิ']],
-    ['.role',['Sergeant cadet']],
     ['.lead',['An ordinary person who loves listening to music, plays games in my free time, and enjoys learning about IT.']],
     ['.stat span',['Year finished ปวช. (B.E.)','Year finished ปวส. (B.E.)','Past workplaces']],
-    ['.status span',['Online · 🎧 Listening to Favorite songs']],
+    ['.status span',['Online · 🎧 Listening to Limbo by keshi']],
     ['.idea small',['Favorite quotes']],
     ['section h2',['About me','Skills','Experience','Past workplaces','Favorite movies','Favorite music','My game','English quiz','Checkers','Contact me']],
-    ['section > p.e',['I’m a sergeant cadet at the Army NCO School in Prachuap Khiri Khan. I like listening to music, play games in my free time, enjoy learning about IT, and love cats. I finished ปวช. in 2023 (B.E. 2566) and ปวส. in 2025 (B.E. 2568), both at Wang Nam Yen Technical College.']],
+    ['section > p.e',['I like listening to music, play games in my free time, enjoy learning about IT, and love cats.']],
     ['.chips li',['Computers / IT','English']],
     ['.tl li b',['Sergeant cadet','Finished ปวส.','Finished ปวช.']],
     ['.tl li span',['Present · Army NCO School, Prachuap Khiri Khan','2025 (B.E. 2568)','2023 (B.E. 2566)']],
@@ -458,7 +499,6 @@ main[data-tab="p"] .tg,#nav[data-tab="p"] .tg{display:none}
     ['footer',['Information provided by the page owner. 🐾']]
   ];
   T.forEach(function(p){document.querySelectorAll(p[0]).forEach(function(el){el.dataset.th=el.textContent})});
-  var role=document.querySelector('.role');role.dataset.th='นักเรียนนายสิบ';
   var IT=['“มีเงินมากแค่ไหน ก็ซื้อเวลาไม่ได้”','“ชีวิตก็เหมือนกล่องช็อกโกแลต เราไม่รู้ว่าจะเจออะไร”','“ความหวังคือสิ่งดีงามที่สุด และสิ่งดีงามไม่เคยตาย”'];
   var IE=['“No matter how much money you have, you can’t buy time.”','“Life is like a box of chocolates: you never know what you’ll get.”','“Hope is the best of good things, and good things never die.”'];
   var cur=0,ip=document.getElementById('idea'),ob=document.getElementById('nextIdea'),nb=ob.cloneNode(true);
@@ -589,7 +629,7 @@ main[data-tab="p"] .tg,#nav[data-tab="p"] .tg{display:none}
   })});
 })();
 </script>
-<script>(function(){var v=document.getElementById('bnv');if(!v)return;if(matchMedia('(prefers-reduced-motion:reduce)').matches){v.removeAttribute('autoplay');v.pause()}else{var p=v.play();if(p&&p.catch)p.catch(function(){})}})();</script>
+
 <script>
 (function(){
   var main=document.querySelector('main'),nav=document.getElementById('nav'),bs=document.querySelectorAll('.tabs button');
@@ -610,31 +650,9 @@ main[data-tab="p"] .tg,#nav[data-tab="p"] .tg{display:none}
 <script>
 (function(){document.querySelectorAll('.eq').forEach(function(e){for(var i=0;i<20;i++){var b=document.createElement('i');b.style.animationDuration=(0.5+Math.random()*0.9)+'s';b.style.animationDelay=(-Math.random())+'s';e.appendChild(b)}})})();
 </script>
-<button id="mfab" type="button" aria-label="เล่นเพลง" aria-pressed="false">♪</button>
-<audio id="bgm" src="music.mp3" loop preload="none"></audio>
-<script>
-(function(){
-  var b=document.getElementById('mfab'),a=document.getElementById('bgm'),sec=document.getElementById('music'),t=document.getElementById('toast'),tt;
-  function L(th,e){return window.__en?e:th}
-  function say(m){if(!t)return;t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('on')},2400)}
-  function ui(on){
-    b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);b.textContent=on?'⏸':'♪';
-    b.setAttribute('aria-label',on?L('หยุดเพลง','Pause music'):L('เล่นเพลง','Play music'));
-    if(sec)sec.classList.toggle('playing',on);
-  }
-  b.addEventListener('click',function(){
-    if(a.paused){
-      var p=a.play();
-      if(p&&p.catch)p.catch(function(){ui(false);say(L('เล่นเพลงไม่ได้ ตรวจว่ามีไฟล์ music.mp3 อยู่ใน repository','Cannot play. Check that music.mp3 is in the repository.'))});
-      ui(true);
-    }else{a.pause();ui(false)}
-  });
-  a.addEventListener('error',function(){ui(false);say(L('ไม่พบไฟล์เพลง music.mp3','music.mp3 not found'))});
-  a.addEventListener('ended',function(){ui(false)});
-  var lg=document.getElementById('lang');if(lg)lg.addEventListener('click',function(){ui(!a.paused)});
-  ui(false);
-})();
-</script>
+
+
+
 <script>
 (function(){
   var root=document.getElementById('ck');if(!root)return;
@@ -847,6 +865,104 @@ main[data-tab="p"] .tg,#nav[data-tab="p"] .tg{display:none}
   }
   var lg=document.getElementById('lang');if(lg)lg.addEventListener('click',render);
   init();render();
+})();
+</script>
+<button id="mfab" type="button" aria-label="เล่นเพลง" aria-pressed="false">♪</button>
+<audio id="bgm" src="music.mp3" loop preload="metadata"></audio>
+<script>(function(){var v=document.getElementById('bnv');if(!v)return;v.addEventListener('error',function(){v.remove()});setTimeout(function(){if(v.parentNode&&(v.error||v.networkState===3))v.remove()},3000);if(matchMedia('(prefers-reduced-motion:reduce)').matches){v.removeAttribute('autoplay');v.pause()}else{var p=v.play();if(p&&p.catch)p.catch(function(){})}})();</script>
+<script>
+(function(){
+  var fb=false,PL='https://youtube.com/playlist?list=PLFBdFXObLp40Uwz1Y7nQeS41Wj7XsfBmQ&si=Nz1H985c9J4UE3Xt';
+  var b=document.getElementById('mfab'),a=document.getElementById('bgm'),sec=document.getElementById('music'),t=document.getElementById('toast'),tt;
+  function L(th,e){return window.__en?e:th}
+  function say(m){if(!t)return;t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('on')},2400)}
+  function ui(on){
+    b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);b.textContent=on?'⏸':'♪';
+    b.setAttribute('aria-label',on?L('หยุดเพลง','Pause music'):L('เล่นเพลง','Play music'));
+    if(sec)sec.classList.toggle('playing',on);
+  }
+  b.addEventListener('click',function(){
+    if(fb||a.networkState===3){say(L('ไม่พบไฟล์ music.mp3 เปิดเพลย์ลิสต์ YouTube แทน','music.mp3 not found, opening the YouTube playlist'));window.open(PL,'_blank','noopener');return}
+    if(a.paused){
+      var p=a.play();
+      if(p&&p.catch)p.catch(function(){ui(false);say(L('เล่นเพลงไม่ได้ ตรวจว่ามีไฟล์ music.mp3 อยู่ใน repository','Cannot play. Check that music.mp3 is in the repository.'))});
+      ui(true);
+    }else{a.pause();ui(false)}
+  });
+  a.addEventListener('error',function(){fb=true;ui(false)});
+  a.addEventListener('ended',function(){ui(false)});
+  var lg=document.getElementById('lang');if(lg)lg.addEventListener('click',function(){ui(!a.paused)});
+  ui(false);
+})();
+</script>
+<script>document.querySelectorAll('.pst').forEach(function(i){function x(){i.remove()}if(i.complete&&!i.naturalWidth)x();else i.addEventListener('error',x)});</script>
+<script>
+(function(){
+  var M=[
+   {dir:'Bob Persichetti, Peter Ramsey, Rodney Rothman',min:117,
+    rel:['6 ธ.ค. 2018','Dec 6, 2018'],
+    gen:['แอนิเมชัน · แอ็กชัน · ผจญภัย','Animation · Action · Adventure'],
+    cast:'Shameik Moore, Jake Johnson, Hailee Steinfeld',
+    plot:['ไมลส์ โมราเลส วัยรุ่นจากบรูกลินถูกแมงมุมกัดจนมีพลังพิเศษ เขาได้พบสไปเดอร์แมนจากหลายมิติที่หลุดเข้ามา และต้องร่วมมือกันหยุดแผนของคิงพินที่อาจทำลายทุกจักรวาล','Miles Morales, a Brooklyn teen, gets powers from a spider bite and meets Spider-People from other dimensions. Together they must stop Kingpin’s plan, which could destroy every reality.'],
+    aw:['ได้รางวัลจากหลายเวที เช่น Golden Globe, BAFTA และ Annie','Won awards at several ceremonies, including the Golden Globes, BAFTA and the Annies']},
+   {dir:'Peter Farrelly',min:130,
+    rel:['16 พ.ย. 2018','Nov 16, 2018'],
+    gen:['ชีวประวัติ · คอมเมดี้ดราม่า','Biographical · Comedy-drama'],
+    cast:'Viggo Mortensen, Mahershala Ali, Linda Cardellini',
+    plot:['ปี 1962 โทนี่ ลิป พนักงานคุมหน้าร้านชาวอิตาเลียน-อเมริกัน รับงานขับรถให้ ดอน เชอร์ลีย์ นักเปียโนผิวสี ระหว่างทัวร์คอนเสิร์ตในภาคใต้ที่ยังมีการแบ่งแยกสีผิว สร้างจากเรื่องจริง','In 1962, Tony “Lip” Vallelonga, an Italian-American bouncer, becomes the driver of Black pianist Don Shirley on a concert tour through the segregated American South. Based on a true story.'],
+    aw:['ออสการ์ 3 รางวัล: ภาพยนตร์ยอดเยี่ยม, บทภาพยนตร์ดั้งเดิมยอดเยี่ยม และนักแสดงสมทบชายยอดเยี่ยม (Mahershala Ali)','3 Oscars: Best Picture, Best Original Screenplay and Best Supporting Actor (Mahershala Ali)']},
+   {dir:'Richard Curtis',min:123,
+    rel:['4 ก.ย. 2013 (สหราชอาณาจักร)','Sep 4, 2013 (UK)'],
+    gen:['โรแมนติก · แฟนตาซี · คอมเมดี้ดราม่า','Romance · Fantasy · Comedy-drama'],
+    cast:'Domhnall Gleeson, Rachel McAdams, Bill Nighy',
+    plot:['ทิม หนุ่มจากคอร์นวอลล์ รู้ว่าตัวเองย้อนเวลากลับไปแก้ไขอดีตได้ เขาจึงใช้พลังนี้เพื่อให้ชีวิตรักดีขึ้น แต่สุดท้ายก็ได้เรียนรู้ว่าการใช้ชีวิตแต่ละวันให้คุ้มค่าสำคัญกว่า','Tim, a young man from Cornwall, learns he can travel back in time and uses it to improve his love life, but comes to see that making the most of every day matters more.'],
+    aw:['เขียนบทและกำกับโดยคนเดียวกับ Love Actually','Written and directed by the filmmaker behind Love Actually']},
+   {dir:['เป้ นฤบดี เวชกรรม','Nareubadee Wechakam (Pae)'],min:125,
+    rel:['13 ก.พ. 2020','Feb 13, 2020'],
+    gen:['โรแมนติกคอมเมดี้','Romantic comedy'],
+    cast:['มาริโอ้ เมาเร่อ, พลอยไพลิน ตั้งประภาพร','Mario Maurer, Ploypailin Tangprapaporn'],
+    plot:['หลิน สาวโสดหมาดๆ ที่เห็นผีได้ ขึ้นเหนือไปเยียวยาหัวใจหลังอกหัก แล้วมาเจอพุธ นักเขียนบทช้ำรักที่ต้องเขียนหนังผี ทั้งสองคนค่อยๆ ขยับเข้าใกล้กันในฤดู Low Season','Lin, freshly single and able to see ghosts, heads north to heal a broken heart and meets Put, a heartbroken screenwriter stuck on a ghost script. The two slowly grow closer during the low season.'],
+    aw:null}
+  ];
+  var L={dir:['ผู้กำกับ','Director'],min:['ความยาว','Runtime'],rel:['เข้าฉาย','Released'],gen:['แนว','Genre'],cast:['นักแสดง','Cast'],aw:['รางวัล','Notes']};
+  var cards=[].slice.call(document.querySelectorAll('#movies .mv'));
+  if(!cards.length)return;
+  var hint=document.getElementById('mvh');
+  var ov=document.createElement('div');ov.className='mvo';
+  ov.innerHTML='<div class="mvs2" role="dialog" aria-modal="true" aria-labelledby="mvtt"><button type="button" class="mvx" aria-label="ปิด">✕</button><div class="mvt"><div id="mvim"></div><div><h3 id="mvtt"></h3><span id="mvyr"></span></div></div><dl class="mvd" id="mvd"></dl><p class="mvp" id="mvp"></p></div>';
+  document.body.appendChild(ov);
+  var cl=ov.querySelector('.mvx'),open=-1,last=null;
+  function pick(v,i){return Object.prototype.toString.call(v)==='[object Array]'?v[i]:v}
+  function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function render(){
+    if(open<0)return;
+    var en=window.__en?1:0,m=M[open],c=cards[open];
+    document.getElementById('mvtt').textContent=c.querySelector('b').textContent;
+    document.getElementById('mvyr').textContent=c.querySelector('span').textContent;
+    var im=document.getElementById('mvim'),pi=c.querySelector('.pst');
+    im.innerHTML='';im.style.display=pi?'block':'none';
+    if(pi){var n=pi.cloneNode(false);n.removeAttribute('loading');n.style.width='84px';n.style.display='block';im.appendChild(n)}
+    var rows=[['dir',pick(m.dir,en)],['min',m.min+(en?' min':' นาที')],['rel',pick(m.rel,en)],['gen',pick(m.gen,en)],['cast',pick(m.cast,en)]];
+    if(m.aw)rows.push(['aw',pick(m.aw,en)]);
+    document.getElementById('mvd').innerHTML=rows.map(function(r){return'<dt>'+L[r[0]][en]+'</dt><dd>'+esc(r[1])+'</dd>'}).join('');
+    document.getElementById('mvp').textContent=pick(m.plot,en);
+    cl.setAttribute('aria-label',en?'Close':'ปิด');
+  }
+  function show(i){last=document.activeElement;open=i;render();ov.classList.add('on');document.body.style.overflow='hidden';cl.focus()}
+  function hide(){open=-1;ov.classList.remove('on');document.body.style.overflow='';if(last&&last.focus)last.focus()}
+  cards.forEach(function(c,i){
+    c.setAttribute('tabindex','0');c.setAttribute('role','button');c.setAttribute('aria-haspopup','dialog');
+    c.addEventListener('click',function(){show(i)});
+    c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();show(i)}});
+  });
+  cl.addEventListener('click',hide);
+  ov.addEventListener('click',function(e){if(e.target===ov)hide()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&open>-1)hide()});
+  var lb=document.getElementById('lang');
+  if(lb)lb.addEventListener('click',function(){
+    if(hint)hint.textContent=window.__en?'Tap a card to see movie info':'แตะการ์ดเพื่อดูข้อมูลหนัง';
+    render();
+  });
 })();
 </script>
 </body>
