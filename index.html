@@ -1071,20 +1071,19 @@ body.mo #drawer{transform:none;visibility:visible}
 </script>
 
 <style id="sasuke-chibi-style">
-#sasuke-chibi-walker{position:fixed;z-index:9998;left:12px;bottom:calc(8px + env(safe-area-inset-bottom,0px));width:104px;height:124px;pointer-events:auto;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent;filter:drop-shadow(0 5px 5px rgba(0,0,0,.22));transition:filter .2s;}
-#sasuke-chibi-walker:active{filter:drop-shadow(0 2px 2px rgba(0,0,0,.28));}
-#sasuke-chibi-sprite{width:100%;height:100%;background-image:url('sasuke_chibi_walk.png');background-repeat:no-repeat;background-size:400% 100%;background-position:0 50%;animation:sasukeChibiSteps .72s steps(4) infinite;transform-origin:center bottom;}
+#sasuke-chibi-walker{position:fixed;z-index:9998;left:12px;bottom:calc(5px + env(safe-area-inset-bottom,0px));width:88px;height:146px;pointer-events:auto;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent;filter:drop-shadow(0 5px 5px rgba(0,0,0,.22));}
+#sasuke-chibi-walker:active{filter:drop-shadow(0 2px 3px rgba(0,0,0,.3));}
+#sasuke-chibi-sprite{width:100%;height:100%;display:flex;align-items:flex-end;justify-content:center;transform-origin:center bottom;}
+#sasuke-chibi-sprite img{display:block;width:100%;height:100%;object-fit:contain;object-position:center bottom;pointer-events:none;user-select:none;-webkit-user-drag:none;animation:sasukeBodyBounce .28s ease-in-out infinite alternate;}
 #sasuke-chibi-walker.facing-left #sasuke-chibi-sprite{transform:scaleX(-1)}
-#sasuke-chibi-walker.paused #sasuke-chibi-sprite{animation-play-state:paused;background-position:0 50%;}
-#sasuke-chibi-bubble{position:absolute;bottom:108px;left:50%;transform:translateX(-50%);width:max-content;max-width:190px;padding:7px 11px;border:2px solid #171725;border-radius:12px;background:#fff;color:#171725;font:700 12px/1.35 Prompt,Sarabun,sans-serif;box-shadow:3px 3px 0 #171725;opacity:0;visibility:hidden;transition:opacity .18s;white-space:normal;text-align:center;}
+#sasuke-chibi-bubble{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);width:max-content;max-width:190px;padding:7px 11px;border:2px solid #171725;border-radius:12px;background:#fff;color:#171725;font:700 12px/1.35 Prompt,Sarabun,sans-serif;box-shadow:3px 3px 0 #171725;opacity:0;visibility:hidden;transition:opacity .18s;white-space:normal;text-align:center;}
 #sasuke-chibi-bubble:after{content:"";position:absolute;left:calc(50% - 6px);bottom:-8px;width:11px;height:11px;background:#fff;border-right:2px solid #171725;border-bottom:2px solid #171725;transform:rotate(45deg)}
 #sasuke-chibi-walker.talk #sasuke-chibi-bubble{opacity:1;visibility:visible}
-@keyframes sasukeChibiSteps{from{background-position:0 50%}to{background-position:100% 50%}}
-@media(max-width:480px){#sasuke-chibi-walker{width:82px;height:98px;bottom:calc(5px + env(safe-area-inset-bottom,0px));}#sasuke-chibi-bubble{bottom:88px;font-size:11px;max-width:160px}}
-@media(prefers-reduced-motion:reduce){#sasuke-chibi-sprite{animation:none;background-position:0 50%}}
+@keyframes sasukeBodyBounce{from{translate:0 0}to{translate:0 -2px}}
+@media(max-width:480px){#sasuke-chibi-walker{width:70px;height:117px;bottom:calc(4px + env(safe-area-inset-bottom,0px));}#sasuke-chibi-bubble{font-size:11px;max-width:160px}}
 </style>
-<div id="sasuke-chibi-walker" role="button" tabindex="0" aria-label="Sasuke chibi เดินไปมา แตะเพื่อคุย">
-  <div id="sasuke-chibi-sprite"></div>
+<div id="sasuke-chibi-walker" role="button" tabindex="0" aria-label="Sasuke chibi กำลังเดิน แตะเพื่อคุย">
+  <div id="sasuke-chibi-sprite"><img src="sasuke_chibi_walk.gif" alt="Sasuke chibi กำลังเดิน" draggable="false"></div>
   <div id="sasuke-chibi-bubble">หึ... มีอะไร?</div>
 </div>
 <script id="sasuke-chibi-script">
@@ -1092,16 +1091,25 @@ body.mo #drawer{transform:none;visibility:visible}
   var el=document.getElementById('sasuke-chibi-walker');
   if(!el)return;
   var bubble=document.getElementById('sasuke-chibi-bubble');
-  var x=12,dir=1,speed=0.72,last=0,paused=false;
+  var x=12,dir=1,speed=0.72,last=0;
   var phrases=['หึ... มีอะไร?','อย่ามัวแต่จ้องสิ','ฉันจะเดินตรงนี้แหละ','อย่าขวางทางฉัน','Sharingan!'];
   function bounds(){return Math.max(0,window.innerWidth-el.offsetWidth-8)}
   function move(t){
     if(!last)last=t;
     var dt=Math.min(40,t-last);last=t;
-    if(!paused){x+=dir*speed*dt/16.67;var max=bounds();if(x>=max){x=max;dir=-1}else if(x<=0){x=0;dir=1}el.style.left=x+'px';el.classList.toggle('facing-left',dir<0)}
+    x+=dir*speed*dt/16.67;
+    var max=bounds();
+    if(x>=max){x=max;dir=-1}else if(x<=0){x=0;dir=1}
+    el.style.left=x+'px';
+    el.classList.toggle('facing-left',dir<0);
     requestAnimationFrame(move);
   }
-  function talk(){var phrase=phrases[Math.floor(Math.random()*phrases.length)];bubble.textContent=phrase;el.classList.add('talk');setTimeout(function(){el.classList.remove('talk')},1900)}
+  function talk(){
+    var phrase=phrases[Math.floor(Math.random()*phrases.length)];
+    bubble.textContent=phrase;el.classList.add('talk');
+    clearTimeout(el._talkTimer);
+    el._talkTimer=setTimeout(function(){el.classList.remove('talk')},1900);
+  }
   el.addEventListener('click',talk);
   el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();talk()}});
   window.addEventListener('resize',function(){x=Math.min(x,bounds());el.style.left=x+'px'});
